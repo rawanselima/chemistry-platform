@@ -3,7 +3,7 @@ import { TiArrowLeft } from "react-icons/ti";
 import { GiChemicalDrop } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import CoursesBox from "./CoursesBox";
-import SubTitle from "../common/subTitle";
+import SubTitle from "../common/SubTitle";
 const Courses = () => {
   return (
     <section className="bg-[url(/assets/background.webp)] bg-no-repeat bg-cover py-20 px-5 md:px-20">
