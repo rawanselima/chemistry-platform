@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, PanInfo } from "framer-motion";
+import type { PanInfo } from "framer-motion";
+import { motion } from "framer-motion";
 import CardFeedback from "./CardFeedback";
 import { cardData } from "./dataFeedback";
-
 
 interface IconProps {
   className?: string;
@@ -42,13 +42,14 @@ const ChevronRightIcon: React.FC<IconProps> = ({ className }) => (
   </svg>
 );
 
-
 export default function FeedbackSlider() {
   const [activeIndex, setActiveIndex] = useState(
     Math.floor(cardData.length / 2)
   );
   const [isPaused, setIsPaused] = useState(false);
-  const autoplayIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const autoplayIntervalRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null
+  );
   const autoplayDelay = 3000;
   const [visibleCards, setVisibleCards] = useState(7);
 
@@ -84,7 +85,7 @@ export default function FeedbackSlider() {
   };
 
   const onDragEnd = (
-    event: MouseEvent | TouchEvent | PointerEvent,
+    _event: MouseEvent | TouchEvent | PointerEvent,
     info: PanInfo
   ) => {
     const dragThreshold = 75;
@@ -161,4 +162,3 @@ export default function FeedbackSlider() {
     </section>
   );
 }
-
