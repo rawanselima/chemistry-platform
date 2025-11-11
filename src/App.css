@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-purple: #8711c1;
+  --color-dark-purple: #411467;
+  --color-light-purple: #f3e3ff;
+  --color-simon: #b85c99;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-gray: #787878;
+  --font-tajawal: "Tajawal", sans-serif;
+}
+
+.footer-gradient {
+  background: radial-gradient(
+      ellipse 80% 60% at 50% 0%,
+      var(--color-dark-purple),
+      transparent 70%
+    ),
+    #000000;
+}
