@@ -19,7 +19,7 @@ const HeroSection = () => {
         </div>
 
         <div className="md:my-10 my-5">
-          <Button style="solid" size="large">
+          <Button style="solid" size="large" width="fit">
             اكتشف الكورسات <TiArrowLeft />
           </Button>
         </div>

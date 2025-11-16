@@ -20,7 +20,8 @@ interface NestedAccordionProps {
 
 export default function NestedAccordion({ items }: NestedAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const contentRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const contentRefs = useRef<HTMLDivElement[]>([]);
+
   const style: string = "flex items-center gap-1 mb-1 text-dark-purple";
   const toggleItem = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -67,7 +68,7 @@ export default function NestedAccordion({ items }: NestedAccordionProps) {
 
             {/* محتوى الـ accordion مع transition تدريجي */}
             <div
-              ref={(el) => (contentRefs.current[index] = el)}
+              ref={(el) => (contentRefs.current[index] = el!)}
               style={{
                 maxHeight: isOpen
                   ? contentRefs.current[index]
