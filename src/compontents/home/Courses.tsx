@@ -2,7 +2,7 @@ import Button from "../common/Button";
 import { TiArrowLeft } from "react-icons/ti";
 import { GiChemicalDrop } from "react-icons/gi";
 import { Link } from "react-router-dom";
-import CoursesBox from "./CoursesBox";
+import CoursesBox from "../courses/CoursesBox";
 import SubTitle from "../common/SubTitle";
 const Courses = () => {
   return (

@@ -3,14 +3,16 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { SlChemistry } from "react-icons/sl";
+import { NavLink } from "react-router-dom";
+import Videotext from "./Logo";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const navLinks = [
-    { href: "#", text: "الرئيسيه" },
-    { href: "#", text: "الكورسات" },
-    { href: "#", text: "التواصل معنا" },
-    { href: "#", text: "البروفايل" },
+    { to: "/", text: "الرئيسيه" },
+    { to: "courses", text: "الكورسات" },
+    { to: "contact", text: "التواصل معنا" },
+    { to: "userProfile", text: "البروفايل" },
   ];
 
   useEffect(() => {
@@ -30,29 +32,33 @@ const Navbar = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* Logo Section */}
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <a href="#" className="flex items-center">
                 <div>
-                  <span className="text-purple font-bold text-2xl">
+                  <span className="text-purple font-bold text-3xl">
                     <SlChemistry />
                   </span>
                 </div>
-                <span className="font-bold text-xl text-dark-purple font-tajawal">
-                  المعادله
-                </span>
+                <div className="font-bold text-xl text-dark-purple font-tajawal">
+                  <Videotext />
+                </div>
               </a>
             </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
-                <a
+                <NavLink
                   key={link.text}
-                  href={link.href}
-                  className=" text-black hover:text-purple transition-colors duration-300"
+                  to={link.to}
+                  className={({ isActive }) =>
+                    `transition-colors duration-300 ${
+                      isActive ? "text-purple" : "text-black hover:text-purple"
+                    }`
+                  }
                 >
                   {link.text}
-                </a>
+                </NavLink>
               ))}
             </nav>
 
@@ -125,19 +131,24 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Navigation Links */}
-          <nav className="flex-grow p-4">
-            <div className="flex flex-col space-y-2">
+          <nav className="grow p-4">
+            <ul className="flex flex-col space-y-2">
               {navLinks.map((link) => (
-                <a
+                <NavLink
                   key={link.text}
-                  href={link.href}
-                  className="px-3 py-2 te text-white rounded-md hover:bg-light-purple hover:text-dark-purple transition-colors duration-300"
-                  onClick={() => setIsMenuOpen(false)}
+                  to={link.to}
+                  className={({ isActive }) =>
+                    `px-3 py-2 rounded-md  transition-colors duration-300 ${
+                      isActive
+                        ? "bg-light-purple text-dark-purple"
+                        : "text-white bg-transparent hover:bg-light-purple hover:text-dark-purple"
+                    }`
+                  }
                 >
-                  {link.text}
-                </a>
+                  <li onClick={() => setIsMenuOpen(false)}>{link.text}</li>
+                </NavLink>
               ))}
-            </div>
+            </ul>
           </nav>
 
           {/* Mobile Footer */}

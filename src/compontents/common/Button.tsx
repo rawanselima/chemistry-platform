@@ -2,6 +2,8 @@ interface ButtonProps {
   children: React.ReactNode;
   style: "solid" | "outline";
   size: "small" | "medium" | "large";
+  width: "half" | "full" | "fit";
+  onClick?: () => void;
 }
 
 type ColorStyles = {
@@ -14,7 +16,13 @@ type SizeStyle = {
   medium: string;
   large: string;
 };
-const Button = ({ children, style, size }: ButtonProps) => {
+
+type widthStyle = {
+  half: string;
+  full: string;
+  fit: string;
+};
+const Button = ({ children, style, size, width, onClick }: ButtonProps) => {
   const colors: ColorStyles = {
     solid: "bg-purple hover:bg-dark-purple text-white",
     outline:
@@ -24,11 +32,19 @@ const Button = ({ children, style, size }: ButtonProps) => {
   const padding: SizeStyle = {
     small: "py-1 px-7 text-sm",
     medium: "py-2 px-5",
-    large: "py-3 px-7",
+    large: "py-3 px-10",
   };
+
+  const widthValue: widthStyle = {
+    half: "w-1/2",
+    full: "w-full",
+    fit: "w-fit",
+  };
+
   return (
     <button
-      className={`flex items-center gap-1 ${padding[size]} rounded-lg cursor-pointer transition-all duration-300 ${colors[style]} `}
+      className={`${widthValue[width]} flex items-center justify-center gap-1 ${padding[size]} rounded-lg cursor-pointer transition-all duration-300 ${colors[style]} `}
+      onClick={onClick}
     >
       {children}
     </button>
