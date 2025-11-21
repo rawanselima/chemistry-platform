@@ -50,7 +50,7 @@ const items = [
   },
 ];
 
-export function AppSidebar() {
+export default function AppSidebar() {
   return (
     <Sidebar side="right" collapsible="icon">
       <SidebarContent className="footer-gradient text-light-purple">
