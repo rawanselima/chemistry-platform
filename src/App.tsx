@@ -5,7 +5,6 @@ import Layout from "./pages/Layout";
 import Courses from "./pages/Courses";
 import DetailsCourse from "./pages/DetailsCourse";
 import UserProfile from "./pages/UserProfile";
-import UserLayout from "./pages/UserLayout";
 import UserCourses from "./pages/UserCourses";
 import MyCourses from "./compontents/userCourses/MyCourses";
 import FreeCourses from "./compontents/userCourses/FreeCourses";
@@ -16,6 +15,7 @@ import Homeworks from "./compontents/detailsUserCourse/Homeworks";
 import Files from "./compontents/detailsUserCourse/Files";
 import Exams from "./compontents/detailsUserCourse/Exams";
 import Exam from "./pages/Exam";
+import UserLayout from "./pages/UserLayout";
 function App() {
   const router = createBrowserRouter([
     {
