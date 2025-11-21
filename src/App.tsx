@@ -15,7 +15,7 @@ import Homeworks from "./compontents/detailsUserCourse/Homeworks";
 import Files from "./compontents/detailsUserCourse/Files";
 import Exams from "./compontents/detailsUserCourse/Exams";
 import Exam from "./pages/Exam";
-import UserLayout from "@/pages/UserLayout";
+import UserLayout from "./pages/UserLayout";
 function App() {
   const router = createBrowserRouter([
     {
