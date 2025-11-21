@@ -26,7 +26,7 @@ const Courses = () => {
           </h1>
         </div>
         <Link to="#" className="md:my-0 my-3">
-          <Button style="solid" size="large">
+          <Button style="solid" size="large" width="fit">
             استكشف المزيد من الكورسات <TiArrowLeft />
           </Button>
         </Link>

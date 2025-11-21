@@ -3,8 +3,15 @@ import { MdOndemandVideo } from "react-icons/md";
 import { MdOutlineQuiz } from "react-icons/md";
 import { IoIosTimer } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+
+type userObject = {
+  name: string;
+};
 const CoursesBox = () => {
   const navigate = useNavigate();
+  const user: userObject = {
+    name: "rawan",
+  };
   return (
     <div className="bg-white rounded-lg ">
       <div className="w-full h-60 p-3 pb-0">
@@ -35,14 +42,18 @@ const CoursesBox = () => {
         </div>
 
         <div className="flex gap-3 my-5">
+          {/*  we add condition paid, free or not to appear this button */}
           <Button style="solid" size="medium" width="half">
             اشترك اللآن
           </Button>
+          {/*  we add condition authentication about login or not to change path   */}
           <Button
             style="outline"
             size="medium"
             width="half"
-            onClick={() => navigate("1")}
+            onClick={() =>
+              navigate(user?.name ? "/userProfile/course/1" : "1")
+            }
           >
             الدخول للكورس
           </Button>

@@ -4,8 +4,18 @@ import Home from "./pages/Home";
 import Layout from "./pages/Layout";
 import Courses from "./pages/Courses";
 import DetailsCourse from "./pages/DetailsCourse";
-import UserLayout from "./pages/userLayout";
 import UserProfile from "./pages/UserProfile";
+import UserLayout from "./pages/UserLayout";
+import UserCourses from "./pages/UserCourses";
+import MyCourses from "./compontents/userCourses/MyCourses";
+import FreeCourses from "./compontents/userCourses/FreeCourses";
+import AllUserCourses from "./compontents/userCourses/AllCourses";
+import DetailsUserCourses from "./pages/DetailsUserCourses";
+import Videos from "./compontents/detailsUserCourse/Videos";
+import Homeworks from "./compontents/detailsUserCourse/Homeworks";
+import Files from "./compontents/detailsUserCourse/Files";
+import Exams from "./compontents/detailsUserCourse/Exams";
+import Exam from "./pages/Exam";
 function App() {
   const router = createBrowserRouter([
     {
@@ -33,6 +43,50 @@ function App() {
         {
           index: true,
           element: <UserProfile />,
+        },
+        {
+          path: "course/:id",
+          element: <DetailsUserCourses />,
+          children: [
+            {
+              index: true,
+              element: <Videos />,
+            },
+            {
+              path: "homework",
+              element: <Homeworks />,
+            },
+            {
+              path: "files",
+              element: <Files />,
+            },
+            {
+              path: "exams",
+              element: <Exams />,
+            },
+          ],
+        },
+        {
+          path: "userCourses",
+          element: <UserCourses />,
+          children: [
+            {
+              index: true,
+              element: <MyCourses />,
+            },
+            {
+              path: "freeCourses",
+              element: <FreeCourses />,
+            },
+            {
+              path: "allCourses",
+              element: <AllUserCourses />,
+            },
+          ],
+        },
+        {
+          path: "course/:id/exams/:id",
+          element: <Exam />,
         },
       ],
     },
