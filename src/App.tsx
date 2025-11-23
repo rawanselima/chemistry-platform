@@ -14,8 +14,13 @@ import Videos from "./compontents/detailsUserCourse/Videos";
 import Homeworks from "./compontents/detailsUserCourse/Homeworks";
 import Files from "./compontents/detailsUserCourse/Files";
 import Exams from "./compontents/detailsUserCourse/Exams";
-import Exam from "./pages/Exam";
+import UserExam from "./pages/UserExam";
 import UserLayout from "./pages/UserLayout";
+import ResultExam from "./pages/ResultExam";
+import UserHomework from "./pages/userHomework";
+import ResultsHomeWork from "./pages/ResultsHomework";
+import UserVideos from "./pages/UserVideos";
+import Community from "./pages/Community";
 function App() {
   const router = createBrowserRouter([
     {
@@ -43,6 +48,10 @@ function App() {
         {
           index: true,
           element: <UserProfile />,
+        },
+        {
+          path: "community",
+          element: <Community />,
         },
         {
           path: "course/:id",
@@ -86,7 +95,23 @@ function App() {
         },
         {
           path: "course/:id/exams/:id",
-          element: <Exam />,
+          element: <UserExam />,
+        },
+        {
+          path: "course/:id/exams/:id/resultExam/:id",
+          element: <ResultExam />,
+        },
+        {
+          path: "course/:id/homework/:id",
+          element: <UserHomework />,
+        },
+        {
+          path: "course/:id/homework/:id/resultHomework/:id",
+          element: <ResultsHomeWork />,
+        },
+        {
+          path: "course/:id/video/:id",
+          element: <UserVideos />,
         },
       ],
     },

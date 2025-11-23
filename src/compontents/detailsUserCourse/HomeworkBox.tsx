@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../common/Button";
 import { FaRegFileAlt } from "react-icons/fa";
 const HomeworkBox = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex items-center flex-wrap justify-between p-5 my-3 rounded-lg border-1 border-light-purple bg-white">
       <div className="flex items-center gap-3">
@@ -25,8 +28,14 @@ const HomeworkBox = () => {
         <span className="text-green-800 bg-green-100 text-sm font-bold rounded-xl py-2 px-5">
           تم التسليم
         </span>{" "}
-        <Button style="solid" width="fit" size="medium">
-          عرض
+        <Button
+          style="solid"
+          width="fit"
+          size="medium"
+          // onClick={() => navigate("1")}
+          onClick={() => navigate("1/resultHomework/1")}
+        >
+          حل الواجب
         </Button>
       </div>
     </div>

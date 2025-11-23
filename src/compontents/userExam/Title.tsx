@@ -5,6 +5,7 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 const Title = () => {
   const navigate = useNavigate();
+
   return (
     <section className="bg-white border-1 border-light-purple p-5 rounded-lg my-5">
       <div className="flex flex-wrap justify-between items-start">
@@ -22,7 +23,7 @@ const Title = () => {
           size="medium"
           onClick={() => navigate(-1)}
         >
-          العوده للكورسات <FaArrowLeftLong />
+          العوده للكورس <FaArrowLeftLong />
         </Button>
       </div>
       <div className="grid sm:grid-cols-2 grid-cols-1 sm:gap-10 gap-2 my-5 ">

@@ -1,7 +1,7 @@
 interface ButtonProps {
   children: React.ReactNode;
   additionalStyle?: string;
-  style: "solid" | "outline";
+  style: "solid" | "outline" | "solved" | "wrong" | "correct";
   size: "small" | "medium" | "large";
   width: "half" | "full" | "fit";
   onClick?: () => void;
@@ -10,6 +10,9 @@ interface ButtonProps {
 type ColorStyles = {
   solid: string;
   outline: string;
+  solved: string;
+  wrong: string;
+  correct: string;
 };
 
 type SizeStyle = {
@@ -36,6 +39,9 @@ const Button = ({
     solid: "bg-purple hover:bg-dark-purple text-white",
     outline:
       "border-1 border-purple text-purple hover:bg-purple hover:text-white",
+    solved: "bg-simon text-white",
+    wrong: "bg-red-900 text-white",
+    correct: "bg-green-700 text-white",
   };
 
   const padding: SizeStyle = {

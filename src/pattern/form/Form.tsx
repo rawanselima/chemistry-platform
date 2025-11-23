@@ -1,3 +1,4 @@
+import Textarea from "../Textarea";
 import Input from "./Input";
 import Label from "./Label";
 import Select from "./Select";
@@ -19,5 +20,6 @@ const Form = ({ children }: formProps) => {
 Form.Input = Input;
 Form.Label = Label;
 Form.Select = Select;
+Form.Textarea = Textarea;
 
 export default Form;

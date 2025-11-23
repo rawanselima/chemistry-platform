@@ -33,7 +33,8 @@ const ExamsBox = () => {
           style="solid"
           width="fit"
           size="medium"
-          onClick={() => navigate("1")}
+          onClick={() => navigate("1")}   //if go to exam
+          // onClick={() => navigate("1/resultExam/1")}
         >
           عرض النتيجه
         </Button>
