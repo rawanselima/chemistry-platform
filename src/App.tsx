@@ -15,7 +15,7 @@ import Homeworks from "./compontents/detailsUserCourse/Homeworks";
 import Files from "./compontents/detailsUserCourse/Files";
 import Exams from "./compontents/detailsUserCourse/Exams";
 import UserExam from "./pages/UserExam";
-import UserLayout from "./pages/UserLayout"; // ✅ Correct
+import UserLayout from "./pages/UserLayout.tsx"; // ✅ Correct
 import ResultExam from "./pages/ResultExam";
 import UserHomework from "./pages/userHomework";
 import ResultsHomeWork from "./pages/ResultsHomework";
