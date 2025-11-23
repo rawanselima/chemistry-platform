@@ -15,12 +15,12 @@ import Homeworks from "./compontents/detailsUserCourse/Homeworks";
 import Files from "./compontents/detailsUserCourse/Files";
 import Exams from "./compontents/detailsUserCourse/Exams";
 import UserExam from "./pages/UserExam";
-import UserLayout from "@/pages/UserLayout"; // ✅ Correct
 import ResultExam from "./pages/ResultExam";
 import UserHomework from "./pages/userHomework";
 import ResultsHomeWork from "./pages/ResultsHomework";
 import UserVideos from "./pages/UserVideos";
 import Community from "./pages/Community";
+import UserLayout from "./pages/userLayout";
 function App() {
   const router = createBrowserRouter([
     {
