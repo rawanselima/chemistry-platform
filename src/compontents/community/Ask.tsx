@@ -7,7 +7,7 @@ const Ask = () => {
     <section className="my-5 bg-white p-5 border-2 border-light-purple rounded-lg">
       <Form>
         <div className="flex items-center flex-wrap gap-5 ">
-          <div className="w-[95%] relative">
+          <div className="xl:w-[80%] w-full relative">
             <div>
               <Form.Textarea
                 placeholder="اكتب سؤالك هنا و شارك باستفسارك..."

@@ -33,7 +33,7 @@ const HomeworkBox = () => {
           width="fit"
           size="medium"
           // onClick={() => navigate("1")}
-          onClick={() => navigate("1/resultHomework/1")}
+          onClick={() => navigate("/userProfile/course/1/resultHomework/1")}
         >
           حل الواجب
         </Button>

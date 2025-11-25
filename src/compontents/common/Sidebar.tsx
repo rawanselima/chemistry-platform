@@ -11,46 +11,14 @@ import {
 } from "@/components/ui/sidebar";
 import { NavLink } from "react-router-dom";
 import { SlChemistry } from "react-icons/sl";
-import { FaRegChartBar } from "react-icons/fa";
-import { MdOutlineOndemandVideo } from "react-icons/md";
-import { RiUserCommunityLine } from "react-icons/ri";
-import { IoReceiptOutline } from "react-icons/io5";
-import { PiGraduationCapLight } from "react-icons/pi";
-// Menu items.
-const items = [
-  {
-    title: "الرئيسيه",
-    url: "/userProfile",
-    icon: FaRegChartBar,
-  },
-  {
-    title: "كورساتي",
-    url: "userCourses",
-    icon: MdOutlineOndemandVideo,
-  },
-  {
-    title: "المجتمع",
-    url: "community",
-    icon: RiUserCommunityLine,
-  },
-  {
-    title: "الفواتير",
-    url: "recips",
-    icon: IoReceiptOutline,
-  },
-  {
-    title: "نتائج الامتحانات",
-    url: "examResults",
-    icon: PiGraduationCapLight,
-  },
-  {
-    title: "نتائج الواجب",
-    url: "homeworkResults",
-    icon: PiGraduationCapLight,
-  },
-];
 
-export default function AppSidebar() {
+// Menu items.
+
+export default function AppSidebar({
+  items,
+}: {
+  items: { title: string; url: string; icon: React.ComponentType }[];
+}) {
   return (
     <Sidebar side="right" collapsible="icon">
       <SidebarContent className="footer-gradient text-light-purple">

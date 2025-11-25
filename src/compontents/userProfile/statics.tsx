@@ -36,7 +36,7 @@ const Statics = () => {
     },
   ];
   return (
-    <section className="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-3">
+    <section className="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-3 mt-5">
       {data.map((ele) => {
         return <StaticsBox data={ele} key={ele.title} />;
       })}

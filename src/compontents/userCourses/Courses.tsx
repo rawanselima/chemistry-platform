@@ -1,6 +1,6 @@
 import CoursesBox from "@/compontents/courses/CoursesBox";
 
-const FreeCourses = () => {
+const Courses = () => {
   return (
     <main>
       <section className="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-2">
@@ -14,4 +14,4 @@ const FreeCourses = () => {
   );
 };
 
-export default FreeCourses;
+export default Courses;

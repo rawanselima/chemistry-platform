@@ -1,7 +1,18 @@
+import Tabs from "@/compontents/common/Tabs";
 import Ask from "@/compontents/community/Ask";
 import Questions from "@/compontents/community/Questions";
+import type { PagesProps } from "@/typs";
 
 const Community = () => {
+  const pages: PagesProps[] = [
+    { title: "كل الاسئله", path: "", value: "allQuestions" },
+    {
+      title: "اسئلتي",
+      path: "",
+      value: "myQuestions",
+    },
+  ];
+
   return (
     <main className="xl:w-3/4 w-full mx-auto">
       <section className="text-center">
@@ -13,6 +24,7 @@ const Community = () => {
         </p>
       </section>
       <Ask />
+      <Tabs pages={pages} mode="filter" paramName="tab" />
       <Questions />
     </main>
   );

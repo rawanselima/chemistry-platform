@@ -6,9 +6,6 @@ import Courses from "./pages/Courses";
 import DetailsCourse from "./pages/DetailsCourse";
 import UserProfile from "./pages/UserProfile";
 import UserCourses from "./pages/UserCourses";
-import MyCourses from "./compontents/userCourses/MyCourses";
-import FreeCourses from "./compontents/userCourses/FreeCourses";
-import AllUserCourses from "./compontents/userCourses/AllCourses";
 import DetailsUserCourses from "./pages/DetailsUserCourses";
 import Videos from "./compontents/detailsUserCourse/Videos";
 import Homeworks from "./compontents/detailsUserCourse/Homeworks";
@@ -21,6 +18,11 @@ import ResultsHomeWork from "./pages/ResultsHomework";
 import UserVideos from "./pages/UserVideos";
 import Community from "./pages/Community";
 import UserLayout from "./pages/userLayout";
+import Receipt from "./pages/Receipt";
+import LayoutCourses from "./pages/LayoutCourses";
+import AllExamResults from "./pages/AllExamResults";
+import AllHomeworkResults from "./pages/AllHomeworkResults";
+import TeacherLayout from "./pages/TeacherLayout";
 function App() {
   const router = createBrowserRouter([
     {
@@ -54,66 +56,74 @@ function App() {
           element: <Community />,
         },
         {
+          path: "receipt",
+          element: <Receipt />,
+        },
+        {
+          path: "examResults",
+          element: <AllExamResults />,
+        },
+        {
+          path: "homeworkResults",
+          element: <AllHomeworkResults />,
+        },
+        {
           path: "course/:id",
-          element: <DetailsUserCourses />,
+          element: <LayoutCourses />,
           children: [
             {
-              index: true,
-              element: <Videos />,
+              path: "",
+              element: <DetailsUserCourses />,
+              children: [
+                {
+                  index: true,
+                  element: <Videos />,
+                },
+                {
+                  path: "homework",
+                  element: <Homeworks />,
+                },
+                {
+                  path: "files",
+                  element: <Files />,
+                },
+                {
+                  path: "exams",
+                  element: <Exams />,
+                },
+              ],
             },
             {
-              path: "homework",
-              element: <Homeworks />,
+              path: "exams/:id",
+              element: <UserExam />,
             },
             {
-              path: "files",
-              element: <Files />,
+              path: "resultExam/:id",
+              element: <ResultExam />,
             },
             {
-              path: "exams",
-              element: <Exams />,
+              path: "homework/:id",
+              element: <UserHomework />,
+            },
+            {
+              path: "resultHomework/:id",
+              element: <ResultsHomeWork />,
+            },
+            {
+              path: "video/:id",
+              element: <UserVideos />,
             },
           ],
         },
         {
           path: "userCourses",
           element: <UserCourses />,
-          children: [
-            {
-              index: true,
-              element: <MyCourses />,
-            },
-            {
-              path: "freeCourses",
-              element: <FreeCourses />,
-            },
-            {
-              path: "allCourses",
-              element: <AllUserCourses />,
-            },
-          ],
-        },
-        {
-          path: "course/:id/exams/:id",
-          element: <UserExam />,
-        },
-        {
-          path: "course/:id/exams/:id/resultExam/:id",
-          element: <ResultExam />,
-        },
-        {
-          path: "course/:id/homework/:id",
-          element: <UserHomework />,
-        },
-        {
-          path: "course/:id/homework/:id/resultHomework/:id",
-          element: <ResultsHomeWork />,
-        },
-        {
-          path: "course/:id/video/:id",
-          element: <UserVideos />,
         },
       ],
+    },
+    {
+      path: "teacherDashboard",
+      element: <TeacherLayout />,
     },
   ]);
   return <RouterProvider router={router} />;

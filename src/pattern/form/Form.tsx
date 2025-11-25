@@ -1,4 +1,4 @@
-import Textarea from "../Textarea";
+import Textarea from "./Textarea";
 import Input from "./Input";
 import Label from "./Label";
 import Select from "./Select";

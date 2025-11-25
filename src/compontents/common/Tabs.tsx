@@ -1,58 +1,69 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
 import Button from "./Button";
+import type { PagesProps } from "@/typs";
 
-interface PagesProps {
-  title: string;
-  path: string;
-}
+type TabsMode = "routing" | "filter";
 
-const Tabs = ({ pages }: { pages: PagesProps[] }) => {
+const Tabs = ({
+  pages,
+  mode = "routing",
+  paramName = "tab",
+}: {
+  pages: PagesProps[];
+  mode?: TabsMode;
+  paramName?: string; // اسم search param مثل ?tab=
+}) => {
+  const [params, setParams] = useSearchParams();
+  const activeFilter = params.get(paramName);
+
+  const handleFilterClick = (value: string | undefined) => {
+    if (!value) return;
+    params.set(paramName, value);
+    setParams(params);
+  };
+
   return (
     <section className="flex justify-center flex-wrap my-5">
-      <NavLink to={pages[0].path} end>
-        {({ isActive }) => (
-          <Button
-            size={window.innerWidth >= 765 ? "large" : "small"}
-            style={isActive ? "solid" : "outline"}
-            width="full"
-            additionalStyle="rounded-l-0 rounded-r-lg"
-          >
-            {pages[0].title}
-          </Button>
-        )}
-      </NavLink>
+      {pages.map((ele, index) => {
+        const radius =
+          index === 0
+            ? "rounded-r-lg"
+            : index === pages.length - 1
+            ? "rounded-l-lg"
+            : "rounded-none";
 
-      {pages.map((ele: PagesProps, index: number) => {
-        return (
-          index !== 0 &&
-          index !== pages.length - 1 && (
+        // ✔️ Routing Mode
+        if (mode === "routing") {
+          return (
             <NavLink to={ele.path} end key={index}>
               {({ isActive }) => (
                 <Button
                   size={window.innerWidth >= 765 ? "large" : "small"}
                   style={isActive ? "solid" : "outline"}
                   width="full"
-                  additionalStyle="rounded-0"
+                  additionalStyle={radius}
                 >
                   {ele.title}
                 </Button>
               )}
             </NavLink>
-          )
+          );
+        }
+
+        // ✔️ Filter Mode
+        return (
+          <button key={index} onClick={() => handleFilterClick(ele.value!)}>
+            <Button
+              size={window.innerWidth >= 765 ? "large" : "small"}
+              style={activeFilter === ele.value ? "solid" : "outline"}
+              width="full"
+              additionalStyle={radius}
+            >
+              {ele.title}
+            </Button>
+          </button>
         );
       })}
-      <NavLink to={pages[pages.length - 1].path} end>
-        {({ isActive }) => (
-          <Button
-            size={window.innerWidth >= 765 ? "large" : "small"}
-            style={isActive ? "solid" : "outline"}
-            width="full"
-            additionalStyle="rounded-r-0 rounded-l-lg"
-          >
-            {pages[pages.length - 1].title}
-          </Button>
-        )}
-      </NavLink>
     </section>
   );
 };

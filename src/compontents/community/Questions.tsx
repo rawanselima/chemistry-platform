@@ -1,6 +1,7 @@
 import QuestionBox from "./QuestionBox";
 
 const Questions = () => {
+
   return (
     <section>
       <QuestionBox />

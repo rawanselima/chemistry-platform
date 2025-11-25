@@ -1,27 +1,17 @@
 import Tabs from "@/compontents/common/Tabs";
+import Courses from "@/compontents/userCourses/Courses";
 import type { PagesProps } from "@/typs";
-import { Outlet } from "react-router-dom";
-
 
 const UserCourses = () => {
   const pages: PagesProps[] = [
-    {
-      title: "كورساتي",
-      path: "/userProfile/userCourses",
-    },
-    {
-      title: "الكورسات المجانيه",
-      path: "freeCourses",
-    },
-    {
-      title: "جميع الكورسات",
-      path: "allCourses",
-    },
+    { title: "كورساتي", path: "", value: "myCourses" },
+    { title: "الكورسات المجانيه", path: "", value: "freeCourses" },
+    { title: "جميع الكورسات", path: "", value: "allCourses" },
   ];
   return (
     <main>
-      <Tabs pages={pages} />
-      <Outlet />
+      <Tabs pages={pages} mode="filter" paramName="tab" />
+      <Courses />
     </main>
   );
 };
