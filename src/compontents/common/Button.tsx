@@ -45,7 +45,7 @@ const Button = ({
   };
 
   const padding: SizeStyle = {
-    small: "py-1 px-7 text-sm",
+    small: "py-2 px-3 text-sm",
     medium: "py-2 px-5",
     large: "py-3 px-10",
   };

@@ -21,6 +21,7 @@ const Statics = () => {
       title: "ساعات الدراسه",
       ratio: "10",
       icon: <IoTimerOutline />,
+      originalValue: "+3 ساعات",
     },
     {
       title: "معدل التقدم",

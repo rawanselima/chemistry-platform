@@ -1,28 +1,37 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
-import Layout from "./pages/Layout";
 import Courses from "./pages/Courses";
 import DetailsCourse from "./pages/DetailsCourse";
 import UserProfile from "./pages/UserProfile";
 import UserCourses from "./pages/UserCourses";
 import DetailsUserCourses from "./pages/DetailsUserCourses";
-import Videos from "./compontents/detailsUserCourse/Videos";
-import Homeworks from "./compontents/detailsUserCourse/Homeworks";
-import Files from "./compontents/detailsUserCourse/Files";
-import Exams from "./compontents/detailsUserCourse/Exams";
 import UserExam from "./pages/UserExam";
 import ResultExam from "./pages/ResultExam";
 import UserHomework from "./pages/userHomework";
 import ResultsHomeWork from "./pages/ResultsHomework";
 import UserVideos from "./pages/UserVideos";
 import Community from "./pages/Community";
-import UserLayout from "./pages/userLayout";
+import UserLayout from "./compontents/layout/userLayout";
 import Receipt from "./pages/Receipt";
-import LayoutCourses from "./pages/LayoutCourses";
+import LayoutCourses from "./compontents/layout/LayoutCourses";
 import AllExamResults from "./pages/AllExamResults";
 import AllHomeworkResults from "./pages/AllHomeworkResults";
-import TeacherLayout from "./pages/TeacherLayout";
+import TeacherLayout from "./compontents/layout/TeacherLayout";
+import TeacherCourses from "./pages/TeacherCourses";
+import DetailsTeacherCourses from "./pages/DetailsTeacherCourses";
+import Layout from "./compontents/layout/Layout";
+import TeacherLectures from "./pages/TeacherLectures";
+import TeacherVideos from "./pages/TeacherVideos";
+import TeacherExams from "./pages/TeacherExams";
+import TeacherHomeworks from "./pages/TeacherHomeworks";
+import TeacherFiles from "./pages/TeacherFiles";
+import TeacherCommunity from "./pages/TeacherCommunity";
+import Students from "./pages/Students";
+import DetailsStudent from "./pages/DetailsStudent";
+import DataStudent from "./pages/DataStudent";
+import TeacherDashboard from "./pages/TeacherDashboard";
+import TeacherReceipt from "./pages/TeacherReceipt";
 function App() {
   const router = createBrowserRouter([
     {
@@ -74,24 +83,6 @@ function App() {
             {
               path: "",
               element: <DetailsUserCourses />,
-              children: [
-                {
-                  index: true,
-                  element: <Videos />,
-                },
-                {
-                  path: "homework",
-                  element: <Homeworks />,
-                },
-                {
-                  path: "files",
-                  element: <Files />,
-                },
-                {
-                  path: "exams",
-                  element: <Exams />,
-                },
-              ],
             },
             {
               path: "exams/:id",
@@ -124,6 +115,62 @@ function App() {
     {
       path: "teacherDashboard",
       element: <TeacherLayout />,
+      children: [
+        {
+          index: true,
+          element: <TeacherDashboard />,
+        },
+        {
+          path: "community",
+          element: <TeacherCommunity />,
+        },
+        {
+          path: "receipts",
+          element: <TeacherReceipt />,
+        },
+        {
+          path: "students",
+          element: <Students />,
+        },
+        {
+          path: "students/:id",
+          element: <DetailsStudent />,
+        },
+        {
+          path: "students/:id/course/:id",
+          element: <DataStudent />,
+        },
+        {
+          path: "courses",
+          element: <TeacherCourses />,
+        },
+        {
+          path: "courses/:id",
+          element: <DetailsTeacherCourses />,
+          children: [
+            {
+              index: true,
+              element: <TeacherLectures />,
+            },
+            {
+              path: "videos",
+              element: <TeacherVideos />,
+            },
+            {
+              path: "exams",
+              element: <TeacherExams />,
+            },
+            {
+              path: "homeworks",
+              element: <TeacherHomeworks />,
+            },
+            {
+              path: "files",
+              element: <TeacherFiles />,
+            },
+          ],
+        },
+      ],
     },
   ]);
   return <RouterProvider router={router} />;

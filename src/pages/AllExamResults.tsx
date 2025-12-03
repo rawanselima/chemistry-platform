@@ -3,6 +3,8 @@ import TitleDashboard from "@/compontents/common/TitleDashboard";
 import { useNavigate } from "react-router-dom";
 import { PiExam } from "react-icons/pi";
 import PaginationDiv from "@/compontents/common/Pagination";
+import type { ExamResultProps } from "@/typs";
+import Form from "@/pattern/form/Form";
 const AllExamResults = () => {
   const navigate = useNavigate();
 
@@ -22,9 +24,9 @@ const AllExamResults = () => {
       style: "text-red-800 font-bold text-lg",
     },
     { key: "finishTime", label: "وقت انهاء الامتحان", style: "text-gray" },
-  ];
+  ] satisfies { key: keyof ExamResultProps; label: string; style?: string }[];
 
-  const exams = [
+  const exams: ExamResultProps[] = [
     {
       id: "1",
       examName: "Mathematics Final",
@@ -80,22 +82,34 @@ const AllExamResults = () => {
   const action = [
     {
       label: "عرض الاجابات",
-      function: (row: object) =>
+      function: (row: ExamResultProps) =>
         navigate(`/userProfile/course/1/resultHomework/${row.id}`),
     },
   ];
 
   return (
     <main>
-      <section className="mt-10">
-        <TitleDashboard>
+      <section className="mt-10 flex items-center flex-wrap justify-between bg-white p-5 rounded-lg border-1 border-light-purple mb-5">
+        <TitleDashboard style="!mb-0" >
           <PiExam /> نتائج الامتحانات
         </TitleDashboard>
+        <Form>
+          <Form.Input
+            type="search"
+            name="searchName"
+            placeholder="ابحث عن اسم امتحان"
+            style="w-60"
+          />
+        </Form>
       </section>
       <section className="bg-white">
-        <GeneralTable columns={columns} data={exams} actions={action} />
+        <GeneralTable<ExamResultProps>
+          columns={columns}
+          data={exams}
+          actions={action}
+        />
       </section>
-      <section className="my-5" >
+      <section className="my-5">
         <PaginationDiv />
       </section>
     </main>

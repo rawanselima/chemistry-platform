@@ -3,21 +3,21 @@ import TitleSection from "../common/TitleSection";
 
 interface data {
   id: string;
-  level: string;
+  value: string;
 }
 const Title = () => {
   const data: Array<data> = [
     {
       id: "1",
-      level: "الصف الاول الثانوي",
+      value: "الصف الاول الثانوي",
     },
     {
       id: "2",
-      level: "الصف الثاني الثانوي",
+      value: "الصف الثاني الثانوي",
     },
     {
       id: "3",
-      level: "الصف الثالت الثانوي",
+      value: "الصف الثالت الثانوي",
     },
   ];
   return (

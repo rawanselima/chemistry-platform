@@ -6,13 +6,14 @@ import { FormContext } from "./useFormContext";
 
 interface formProps {
   children: React.ReactNode;
+  style?: string;
 }
 
-const Form = ({ children }: formProps) => {
+const Form = ({ children, style }: formProps) => {
   const logic = null;
   return (
     <FormContext.Provider value={logic}>
-      <form>{children}</form>
+      <form className={style}>{children}</form>
     </FormContext.Provider>
   );
 };

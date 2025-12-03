@@ -23,7 +23,7 @@ const Community = () => {
           طرح أسئلتك وشارك معرفتك مع زملائك
         </p>
       </section>
-      <Ask />
+      <Ask placeholder="اكتب سؤالك هنا و شارك باستفسارك..." role="student" />
       <Tabs pages={pages} mode="filter" paramName="tab" />
       <Questions />
     </main>

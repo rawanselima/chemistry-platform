@@ -42,17 +42,18 @@ const CoursesBox = () => {
         </div>
 
         <div className="flex gap-3 my-5">
-          {/*  we add condition paid, free or not to appear this button */}
+          {/*  we add condition paid, free or not to appear this button and if it in teacher dashboard or not  */}
           <Button style="solid" size="medium" width="half">
             اشترك اللآن
           </Button>
-          {/*  we add condition authentication about login or not to change path   */}
+          {/*  we add condition authentication about login and if it teacher student or assistant or not to change path   */}
           <Button
             style="outline"
             size="medium"
             width="half"
-            onClick={() =>
-              navigate(user?.name ? "/userProfile/course/1" : "1")
+            onClick={
+              () => navigate(user?.name ? "/userProfile/course/1" : "1")
+              // navigate("/teacherDashboard/courses/1")
             }
           >
             الدخول للكورس

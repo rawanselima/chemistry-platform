@@ -31,8 +31,8 @@ const UserProfile = () => {
               style="md:w-96 w-full mb-10"
               defaultValue="اختر اسم الكورس"
               data={[
-                { id: "1", titleCourse: "عضويه" },
-                { id: "2", titleCourse: "معادلات الحديد" },
+                { id: "1", value: "عضويه" },
+                { id: "2", value: "معادلات الحديد" },
               ]}
             />
           </Form>

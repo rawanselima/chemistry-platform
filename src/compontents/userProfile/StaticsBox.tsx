@@ -14,16 +14,16 @@ const StaticsBox = ({ data }: dataProps) => {
       <div>
         <p className="font-bold text-xl text-dark-purple"> {data.title} </p>
         <p className="text-3xl text-simon font-bold"> {data.ratio} </p>
-        <p className="text-xl">
-          {data.title === "الدروس المكتمله"
-            ? "من أصل"
-            : data.title === "معدل التقدم"
-            ? "هذا الأسبوع"
-            : data.title === "الكورسات المسجله"
-            ? "هذا الشهر "
-            : "هذا الأسبوع"}{" "}
-          <span className="text-simon"> {data?.originalValue} </span>
-        </p>
+        {data.originalValue && (
+          <p className="">
+            {data.title === "الدروس المكتمله"
+              ? "من أصل"
+              : data.title === "معدل التقدم" || data.title === "ساعات الدراسه"
+              ? "هذا الأسبوع"
+              : "هذا الشهر"}
+            <span className="text-simon"> {data?.originalValue} </span>
+          </p>
+        )}
       </div>
       <div className="p-3 rounded-lg bg-light-purple text-dark-purple text-2xl">
         {data.icon}

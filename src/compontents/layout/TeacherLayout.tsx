@@ -1,5 +1,7 @@
 import { SidebarProvider } from "@/components/ui/sidebar";
+import HeaderDashboard from "@/compontents/common/HeaderDashboard";
 import AppSidebar from "@/compontents/common/Sidebar";
+import { Outlet } from "react-router-dom";
 const TeacherLayout = () => {
   const items = [
     {
@@ -8,28 +10,28 @@ const TeacherLayout = () => {
       icon: () => <span>🏠</span>,
     },
     {
+      title: "المستويات الدراسيه",
+      url: "levels",
+      icon: () => <span>🏠</span>,
+    },
+    {
       title: "الدورات",
       url: "courses",
       icon: () => <span>🏠</span>,
     },
     {
-      title: "المحاضرات",
-      url: "lectures",
+      title: "الطلاب",
+      url: "students",
       icon: () => <span>🏠</span>,
     },
     {
-      title: "الامتحانات",
-      url: "exams",
+      title: "الفواتير",
+      url: "receipts",
       icon: () => <span>🏠</span>,
     },
     {
-      title: "الواجبات",
-      url: "homeworks",
-      icon: () => <span>🏠</span>,
-    },
-    {
-      title: "الملفات",
-      url: "files",
+      title: "مجتمع الطلاب",
+      url: "community",
       icon: () => <span>🏠</span>,
     },
     {
@@ -37,15 +39,15 @@ const TeacherLayout = () => {
       url: "assistants",
       icon: () => <span>🏠</span>,
     },
-    {
-      title: "اسئله الطلاب",
-      url: "questions",
-      icon: () => <span>🏠</span>,
-    },
   ];
+
   return (
     <SidebarProvider>
       <AppSidebar items={items} />
+      <main className="font-tajawal font-medium bg-light-purple/25 w-full p-5">
+        <HeaderDashboard />
+        <Outlet />
+      </main>
     </SidebarProvider>
   );
 };

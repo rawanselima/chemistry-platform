@@ -11,7 +11,7 @@ const Tabs = ({
 }: {
   pages: PagesProps[];
   mode?: TabsMode;
-  paramName?: string; // اسم search param مثل ?tab=
+  paramName?: string;
 }) => {
   const [params, setParams] = useSearchParams();
   const activeFilter = params.get(paramName);
@@ -41,7 +41,7 @@ const Tabs = ({
                   size={window.innerWidth >= 765 ? "large" : "small"}
                   style={isActive ? "solid" : "outline"}
                   width="full"
-                  additionalStyle={radius}
+                  additionalStyle={`${radius} mt-5`}
                 >
                   {ele.title}
                 </Button>
@@ -52,16 +52,17 @@ const Tabs = ({
 
         // ✔️ Filter Mode
         return (
-          <button key={index} onClick={() => handleFilterClick(ele.value!)}>
+          <div key={index}>
             <Button
+              onClick={() => handleFilterClick(ele.value!)}
               size={window.innerWidth >= 765 ? "large" : "small"}
               style={activeFilter === ele.value ? "solid" : "outline"}
               width="full"
-              additionalStyle={radius}
+              additionalStyle={`${radius} mt-2`}
             >
               {ele.title}
             </Button>
-          </button>
+          </div>
         );
       })}
     </section>

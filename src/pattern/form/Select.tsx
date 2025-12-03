@@ -1,21 +1,16 @@
-interface LevelsProps {
-  id: string;
-  level: string;
-}
-
-interface CoursesProps {
-  id: string;
-  titleCourse: string;
-}
-
-interface SelectProps {
-  data: Array<LevelsProps | CoursesProps>;
+interface SelectProps<T> {
+  data: Array<T>;
   name: string;
   style?: string;
   defaultValue?: string;
 }
 
-const Select = ({ data, name, style, defaultValue }: SelectProps) => {
+const Select = <T extends { id: string; value: string }>({
+  data,
+  name,
+  style,
+  defaultValue,
+}: SelectProps<T>) => {
   return (
     <select
       name={name}
@@ -30,11 +25,8 @@ const Select = ({ data, name, style, defaultValue }: SelectProps) => {
 
       {/* Render items */}
       {data.map((ele) => (
-        <option
-          key={ele.id}
-          value={"level" in ele ? ele.level : ele.titleCourse}
-        >
-          {"level" in ele ? ele.level : ele.titleCourse}
+        <option key={ele.id} value={ele.id}>
+          {ele.value}
         </option>
       ))}
     </select>

@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { FaBell } from "react-icons/fa";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 
-const HeaderProfile = () => {
+const HeaderDashboard = () => {
   return (
     <header className="bg-white flex justify-between items-center p-3 ">
       <SidebarTrigger className="sidebar-trigger px-7 cursor-pointer text-right text-gray" />
@@ -24,4 +24,4 @@ const HeaderProfile = () => {
   );
 };
 
-export default HeaderProfile;
+export default HeaderDashboard;
