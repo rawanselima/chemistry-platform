@@ -31,16 +31,24 @@ function EditVideo({
         animation="fade"
       >
         <Form>
-          <Form.Label label="عنوان الفيديو" style={styleLabel} />
+          <Form.Label
+            label="عنوان الفيديو"
+            style={styleLabel}
+            htmlFor="videoTitle"
+          />
 
           <Form.Input
             type="text"
-            name="lecture"
+            name="videoTitle"
             defaultValue={"الباب الاول"}
             style="w-full"
           />
 
-          <Form.Label label=" المحاضره المرتبطة بالفيديو" style={styleLabel} />
+          <Form.Label
+            label=" المحاضره المرتبطة بالفيديو"
+            style={styleLabel}
+            htmlFor="linkedLecture"
+          />
 
           <Form.Select
             name="linkedLecture"
@@ -49,13 +57,21 @@ function EditVideo({
             defaultValue="2" // id for select option that will be default
           />
 
-          <Form.Label label=" الفيديو" style={styleLabel} />
+          <Form.Label
+            label=" الفيديو"
+            style={styleLabel}
+            htmlFor="videoSource"
+          />
 
           <video controls className="w-full rounded-lg my-5">
             <source src="/videos/1.mp4" type="video/mp4" />
           </video>
 
-          <Form.Label label=" تغيير الفيديو" style={styleLabel} />
+          <Form.Label
+            label=" تغيير الفيديو"
+            style={styleLabel}
+            htmlFor="video"
+          />
           <Form.Input type="file" name="video" style="w-full" />
 
           <div className="flex items-center gap-3 mt-5">

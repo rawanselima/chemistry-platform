@@ -2,37 +2,43 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import HeaderDashboard from "@/compontents/common/HeaderDashboard";
 import AppSidebar from "@/compontents/common/Sidebar";
 import { Outlet } from "react-router-dom";
+import { IoPeopleSharp } from "react-icons/io5";
+import { FaRegChartBar } from "react-icons/fa";
+import { MdOutlineOndemandVideo } from "react-icons/md";
+import { RiUserCommunityLine } from "react-icons/ri";
+import { IoReceiptOutline } from "react-icons/io5";
+import { FaGraduationCap } from "react-icons/fa";
 const TeacherLayout = () => {
   const items = [
     {
       title: "الرئيسيه",
       url: "/teacherDashboard",
-      icon: () => <span>🏠</span>,
+      icon: FaRegChartBar,
     },
     {
       title: "المستويات الدراسيه",
       url: "levels",
-      icon: () => <span>🏠</span>,
+      icon: FaGraduationCap,
     },
     {
       title: "الدورات",
       url: "courses",
-      icon: () => <span>🏠</span>,
+      icon: MdOutlineOndemandVideo,
     },
     {
       title: "الطلاب",
       url: "students",
-      icon: () => <span>🏠</span>,
+      icon: IoPeopleSharp,
     },
     {
       title: "الفواتير",
       url: "receipts",
-      icon: () => <span>🏠</span>,
+      icon: IoReceiptOutline,
     },
     {
       title: "مجتمع الطلاب",
       url: "community",
-      icon: () => <span>🏠</span>,
+      icon: RiUserCommunityLine,
     },
     {
       title: "السكرتيره",

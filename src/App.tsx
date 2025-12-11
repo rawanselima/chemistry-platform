@@ -32,6 +32,7 @@ import DetailsStudent from "./pages/DetailsStudent";
 import DataStudent from "./pages/DataStudent";
 import TeacherDashboard from "./pages/TeacherDashboard";
 import TeacherReceipt from "./pages/TeacherReceipt";
+import Levels from "./pages/Levels";
 function App() {
   const router = createBrowserRouter([
     {
@@ -127,6 +128,10 @@ function App() {
         {
           path: "receipts",
           element: <TeacherReceipt />,
+        },
+        {
+          path: "levels",
+          element: <Levels />,
         },
         {
           path: "students",

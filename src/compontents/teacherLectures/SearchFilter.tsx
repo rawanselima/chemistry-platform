@@ -19,7 +19,7 @@ const SearchFilter = ({
   return (
     <section className="flex w-full justify-between items-center flex-wrap mb-5 bg-white p-5 rounded-lg border-1 border-light-purple">
       {children}
-      <Form style="">
+      <Form>
         <Form.Select
           data={data}
           name="filterLecture"
