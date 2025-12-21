@@ -4,8 +4,8 @@ import { FiPlus } from "react-icons/fi";
 import GeneralTable from "../compontents/common/Table";
 import { FaRegEye } from "react-icons/fa";
 import { BiSolidEditAlt } from "react-icons/bi";
-import { RiDeleteBin5Line } from "react-icons/ri";
-import DeleteModal from "../compontents/common/DeleteModal";
+// import { RiDeleteBin5Line } from "react-icons/ri";
+// import DeleteModal from "../compontents/common/DeleteModal";
 import { PiStudentFill } from "react-icons/pi";
 import EditExam from "@/compontents/teacherExams/EditExam";
 import ShowExam from "@/compontents/teacherExams/ShowExam";
@@ -25,7 +25,7 @@ interface dataType {
 const TeacherExams = () => {
   const [isAddOpen, setIsAddOpen] = useState<boolean>(false);
   const [isEditOpen, setIsEditOpen] = useState<boolean>(false);
-  const [isDeleteOpen, setIsDeleteOpen] = useState<boolean>(false);
+  // const [isDeleteOpen, setIsDeleteOpen] = useState<boolean>(false);
   const [isShowOpen, setIsShowOpen] = useState<boolean>(false);
   const [isStudentsOpen, setIsStudentsOpen] = useState<boolean>(false);
 
@@ -70,11 +70,11 @@ const TeacherExams = () => {
       operation: "edit",
       function: () => setIsEditOpen(true),
     },
-    {
-      label: <RiDeleteBin5Line />,
-      operation: "delete",
-      function: () => setIsDeleteOpen(true),
-    },
+    // {
+    //   label: <RiDeleteBin5Line />,
+    //   operation: "delete",
+    //   function: () => setIsDeleteOpen(true),
+    // },
     {
       label: <PiStudentFill />,
       operation: "students",
@@ -132,13 +132,13 @@ const TeacherExams = () => {
         <Students isOpen={isStudentsOpen} setIsOpen={setIsStudentsOpen} />
       )}
 
-      {isDeleteOpen && (
+      {/* {isDeleteOpen && (
         <DeleteModal
           isOpen={isDeleteOpen}
           setIsOpen={setIsDeleteOpen}
           title="حذف الامتحان"
         />
-      )}
+      )} */}
     </main>
   );
 };

@@ -2,9 +2,15 @@ import Button from "@/compontents/common/Button";
 import Tabs from "@/compontents/common/Tabs";
 import { FaArrowLeft } from "react-icons/fa6";
 import TitleDashboard from "@/compontents/common/TitleDashboard";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
+import useGetDetailsCourse from "@/compontents/teacherCourses/useGetDetailsCourse";
+import Loader from "@/compontents/common/Loader";
+import Error from "@/compontents/common/Error";
 const DetailsTeacherCourses = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
+  const { data, isLoading, isError } = useGetDetailsCourse(id);
+
   const pages = [
     {
       title: "المحاضرات",
@@ -32,15 +38,17 @@ const DetailsTeacherCourses = () => {
       value: "files",
     },
   ];
+
+  if (isLoading) return <Loader />;
+  if (isError) return <Error />;
+
   return (
     <main>
       <section className="mt-10 flex justify-between items-center flex-wrap">
         <div>
-          <TitleDashboard> محتوي كورس الباب الرابع </TitleDashboard>
+          <TitleDashboard> {data.courseName} </TitleDashboard>
           <p className="text-sm text-gray p-0 -mt-7 m-3 md:w-3/4 w-full">
-            دي المراجعة الشهرية الثانية اللي بتأهلك للامتحان وتراجع كل اللي فات
-            وتلم المتراكم عليك، وهي شاملة آخر 5 محاضرات (من المحاضرة السادسة لحد
-            العاشرة)، وبعدها أنت مفروض تكون مستعد للامتحان الشامل الثاني
+            {data.description}
           </p>
         </div>
         <Button

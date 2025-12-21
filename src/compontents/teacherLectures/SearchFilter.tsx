@@ -30,7 +30,7 @@ const SearchFilter = ({
           name="videoName"
           type="search"
           placeholder={placeholder}
-          style="w-60"
+          style="sm:w-86 w-60"
         />
       </Form>
     </section>

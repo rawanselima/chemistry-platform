@@ -2,7 +2,7 @@ import Modal from "@/components/ui/modal";
 import GeneralTable from "../common/Table";
 import { useNavigate } from "react-router-dom";
 import Form from "@/pattern/form/Form";
-import PaginationDiv from "../common/Pagination";
+// import PaginationDiv from "../common/Pagination";
 
 interface studentsProps {
   isOpen: boolean;
@@ -97,7 +97,7 @@ const Students = ({ isOpen, setIsOpen }: studentsProps) => {
       <GeneralTable<dataType> columns={columns} data={data} actions={actions} />
 
       <section className="mt-5">
-        <PaginationDiv />
+        {/* <PaginationDiv /> */}
       </section>
     </Modal>
   );

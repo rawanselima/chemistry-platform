@@ -1,6 +1,5 @@
 import Button from "@/compontents/common/Button";
-import AddLecture from "@/compontents/teacherLectures/AddLecture";
-import { useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { FiPlus } from "react-icons/fi";
 import GeneralTable from "../compontents/common/Table";
 import { FaRegEye } from "react-icons/fa";
@@ -11,54 +10,58 @@ import EditVideo from "@/compontents/teacherVideos/EditVideo";
 import WatchVideo from "@/compontents/teacherVideos/WatchVideo";
 import StudentsWatching from "@/compontents/teacherVideos/StudentsWatching";
 import { PiStudentFill } from "react-icons/pi";
-import PaginationDiv from "@/compontents/common/Pagination";
+// import PaginationDiv from "@/compontents/common/Pagination";
 import SearchFilter from "@/compontents/teacherLectures/SearchFilter";
-
-interface dataType {
-  id: string;
-  course: string;
-  lecture: string;
-  video: string;
-  time: string;
-  publishedTime: string;
-}
+import { columns } from "@/compontents/teacherVideos/cloumns";
+import useGetVideos from "@/compontents/teacherVideos/useGetVideos";
+import Loader from "@/compontents/common/Loader";
+import Error from "@/compontents/common/Error";
+import type { lectures, videos } from "@/typs";
+import AddVideo from "@/compontents/teacherVideos/AddVideo";
+import useGetLectures from "@/compontents/teacherLectures/useGetLectures";
+import { useParams } from "react-router-dom";
+import useDeleteVideo from "@/compontents/teacherVideos/useDeleteVideo";
+import NoItems from "@/compontents/common/NoItems";
 const TeacherVideos = () => {
   const [isAddOpen, setIsAddOpen] = useState<boolean>(false);
   const [isEditOpen, setIsEditOpen] = useState<boolean>(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState<boolean>(false);
   const [isWatchVideoOpen, setIsWatchVideoOpen] = useState<boolean>(false);
   const [isStudentsOpen, setIsStudentsOpen] = useState<boolean>(false);
+ 
+  const { id: courseId } = useParams<string>();
+  const { data: videos, isLoading, isError } = useGetVideos(courseId);
+  const {
+    data: lectures,
+    isLoading: isLoadingLectures,
+    isError: isErrorLectures,
+  } = useGetLectures(courseId);
+  const { mutate, isPending } = useDeleteVideo(setIsDeleteOpen);
+  const [id, setId] = useState<string | number>();
 
-  const columns = [
-    {
-      key: "course",
-      label: "اسم الكورس",
-    },
-    {
-      key: "lecture",
-      label: "اسم المحاضره",
-      style: "text-purple",
-    },
-    {
-      key: "video",
-      label: "اسم الفيديو",
-    },
-    {
-      key: "time",
-      label: "مده الفيديو ",
-      style: "text-gray",
-    },
-    {
-      key: "publishedTime",
-      label: "وقت النشر ",
-    },
-  ] satisfies { key: keyof dataType; label: string; style?: string }[];
+  const [filterLecture, setFilterLecture] =
+    useState<{ id: string; value: string }[]>();
+
+  useEffect(() => {
+    setFilterLecture(
+      lectures?.map((ele: lectures) => ({
+        id: ele.id,
+        value: ele.lectureName,
+      }))
+    );
+  }, [isLoadingLectures, isErrorLectures]);
+
+  if (isLoading || isLoadingLectures) return <Loader />;
+  if (isError || isErrorLectures) return <Error />;
 
   const actions = [
     {
       label: <FaRegEye />,
       operation: "view",
-      function: () => setIsWatchVideoOpen(true),
+      function: (row: videos) => {
+        setIsWatchVideoOpen(true);
+        setId(row.id);
+      },
     },
     {
       label: <BiSolidEditAlt />,
@@ -68,7 +71,10 @@ const TeacherVideos = () => {
     {
       label: <RiDeleteBin5Line />,
       operation: "delete",
-      function: () => setIsDeleteOpen(true),
+      function: (row: videos) => {
+        setIsDeleteOpen(true);
+        setId(row.id);
+      },
     },
     {
       label: <PiStudentFill />,
@@ -77,41 +83,26 @@ const TeacherVideos = () => {
     },
   ];
 
-  const data: dataType[] = [
-    {
-      id: "1",
-      course: "الباب الاول",
-      lecture: "المناعه",
-      video: "الجزي الاول من المناعه",
-      time: "3:30:20",
-      publishedTime: "20 يوليو 2025",
-    },
-    {
-      id: "1",
-      course: "الباب الاول",
-      lecture: "المناعه",
-      video: "الجزي الاول من المناعه",
-      time: "30 : 20",
-      publishedTime: "20 يوليو 2025",
-    },
-  ];
-
-  const dataFilter = [
-    {
-      id: "1",
-      value: "محاضره المناعه",
-    },
-    {
-      id: "2",
-      value: "محاضره الدعامه",
-    },
-  ];
+  if (isLoading) return <Loader />;
+  if (isError) return <Error />;
 
   return (
     <main>
-      <SearchFilter data={dataFilter} placeholder="ابحث عن اسم الفيديو" />
-
-      <GeneralTable<dataType> columns={columns} data={data} actions={actions} />
+      {videos?.length > 0 ? (
+        <>
+          <SearchFilter
+            data={filterLecture || []}
+            placeholder="ابحث عن اسم الفيديو"
+          />
+          <GeneralTable<videos>
+            columns={columns}
+            data={videos}
+            actions={actions}
+          />
+        </>
+      ) : (
+        <NoItems title="لا يوجد فيديوهات" />
+      )}
 
       <section className="mt-5">
         <Button
@@ -125,18 +116,27 @@ const TeacherVideos = () => {
         </Button>
       </section>
 
-      <section>
-        <PaginationDiv />
-      </section>
+      <section>{/* <PaginationDiv /> */}</section>
 
-      {isAddOpen && <AddLecture isOpen={isAddOpen} setIsOpen={setIsAddOpen} />}
+      {isAddOpen && (
+        <AddVideo
+          isOpen={isAddOpen}
+          setIsOpen={setIsAddOpen}
+          lectures={filterLecture || []}
+          courseId={courseId || ""}
+        />
+      )}
 
       {isEditOpen && (
         <EditVideo isOpen={isEditOpen} setIsOpen={setIsEditOpen} />
       )}
 
       {isWatchVideoOpen && (
-        <WatchVideo isOpen={isWatchVideoOpen} setIsOpen={setIsWatchVideoOpen} />
+        <WatchVideo
+          isOpen={isWatchVideoOpen}
+          setIsOpen={setIsWatchVideoOpen}
+          videoId={id}
+        />
       )}
 
       {isStudentsOpen && (
@@ -151,10 +151,12 @@ const TeacherVideos = () => {
           isOpen={isDeleteOpen}
           setIsOpen={setIsDeleteOpen}
           title="حذف فيديو"
+          isPending={isPending}
+          deleteFn={() => mutate(id)}
         />
       )}
     </main>
   );
 };
 
-export default TeacherVideos;
+export default memo(TeacherVideos);

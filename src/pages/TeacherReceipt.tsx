@@ -1,4 +1,4 @@
-import PaginationDiv from "@/compontents/common/Pagination";
+// import PaginationDiv from "@/compontents/common/Pagination";
 import Table from "@/compontents/common/Table";
 import TitleDashboard from "@/compontents/common/TitleDashboard";
 import Form from "@/pattern/form/Form";
@@ -67,7 +67,7 @@ const TeacherReceipt = () => {
         <Table<ReceiptsProps> columns={columns} data={receipts} />
       </section>
 
-      <PaginationDiv />
+      {/* <PaginationDiv /> */}
     </main>
   );
 };

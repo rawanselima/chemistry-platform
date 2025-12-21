@@ -1,82 +1,73 @@
 import Button from "@/compontents/common/Button";
 import AddLecture from "@/compontents/teacherLectures/AddLecture";
-import { useState } from "react";
+import { memo, useState } from "react";
 import { FiPlus } from "react-icons/fi";
 import GeneralTable from "../compontents/common/Table";
 import { BiSolidEditAlt } from "react-icons/bi";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import EditLecture from "../compontents/teacherLectures/EditLecture";
 import DeleteModal from "../compontents/common/DeleteModal";
-
-interface dataType {
-  id: string;
-  course: string;
-  lecture: string;
-  video: string;
-  exam: string;
-  homework: string;
-  level: string;
-}
+import useGetLectures from "@/compontents/teacherLectures/useGetLectures";
+import type { lectures } from "@/typs";
+import { columns } from "@/compontents/teacherLectures/colums";
+import Loader from "@/compontents/common/Loader";
+import Error from "@/compontents/common/Error";
+import useDeleteLecture from "@/compontents/teacherLectures/useDeleteLecture";
+import { useParams } from "react-router-dom";
+import useGetDetailsCourse from "@/compontents/teacherCourses/useGetDetailsCourse";
+import NoItems from "@/compontents/common/NoItems";
 const TeacherLectures = () => {
   const [isAddOpen, setIsAddOpen] = useState<boolean>(false);
   const [isEditOpen, setIsEditOpen] = useState<boolean>(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState<boolean>(false);
+  const [id, setId] = useState<number | string | undefined>();
+  const { id: courseId } = useParams();
 
-  const columns = [
-    {
-      key: "course",
-      label: "اسم الكورس",
-    },
-    {
-      key: "lecture",
-      label: "اسم المحاضره",
-      style: "text-purple",
-    },
-    {
-      key: "level",
-      label: "  الصف الدراسي",
-    },
-    {
-      key: "video",
-      label: "عدد الفيديوهات",
-    },
-    {
-      key: "exam",
-      label: " عدد الامتحانات",
-    },
-    {
-      key: "homework",
-      label: "عدد الواجبات ",
-    },
-  ] satisfies { key: keyof dataType; label: string; style?: string }[];
+  const {
+    data: detailsCourse,
+    isLoading: isLoadingDetailsCourse,
+    isError: isErrorDetailsCourse,
+  } = useGetDetailsCourse(courseId);
+
+  const { data: lectures, isLoading, isError } = useGetLectures(courseId);
+  const { mutate: deleteLecture, isPending } = useDeleteLecture(
+    setIsDeleteOpen,
+    courseId
+  );
 
   const actions = [
     {
       label: <BiSolidEditAlt />,
       operation: "edit",
-      function: () => setIsEditOpen(true),
+      function: (row: lectures) => {
+        setIsEditOpen(true);
+        setId(row.id);
+      },
     },
     {
       label: <RiDeleteBin5Line />,
       operation: "delete",
-      function: () => setIsDeleteOpen(true),
+      function: (row: lectures) => {
+        setIsDeleteOpen(true);
+        setId(row.id);
+      },
     },
   ];
 
-  const data: dataType[] = [
-    {
-      id: "1",
-      course: "الباب الاول",
-      lecture: "المناعه",
-      video: "24 فيديو",
-      exam: "30 امتحان",
-      homework: "20 واجب",
-      level: "الصف الثاني الثانوي",
-    },
-  ];
+  if (isLoading || isLoadingDetailsCourse) return <Loader />;
+  if (isError || isErrorDetailsCourse) return <Error />;
+
   return (
     <main>
-      <GeneralTable<dataType> columns={columns} data={data} actions={actions} />
+      {lectures?.length > 0 ? (
+        <GeneralTable<lectures>
+          columns={columns}
+          data={lectures}
+          actions={actions}
+        />
+      ) : (
+        <NoItems title="لا يوجد محاضرات" />
+      )}
 
       <section className="mt-5">
         <Button
@@ -90,20 +81,32 @@ const TeacherLectures = () => {
         </Button>
       </section>
 
-      {isAddOpen && <AddLecture isOpen={isAddOpen} setIsOpen={setIsAddOpen} />}
+      {isAddOpen && (
+        <AddLecture
+          isOpen={isAddOpen}
+          setIsOpen={setIsAddOpen}
+          detailsCourse={detailsCourse}
+        />
+      )}
 
       {isEditOpen && (
-        <EditLecture isOpen={isEditOpen} setIsOpen={setIsEditOpen} />
+        <EditLecture
+          isOpen={isEditOpen}
+          setIsOpen={setIsEditOpen}
+          lectureId={id}
+        />
       )}
       {isDeleteOpen && (
         <DeleteModal
           isOpen={isDeleteOpen}
           setIsOpen={setIsDeleteOpen}
           title="حذف المحاضره"
+          deleteFn={() => deleteLecture(id)}
+          isPending={isPending}
         />
       )}
     </main>
   );
 };
 
-export default TeacherLectures;
+export default memo(TeacherLectures);

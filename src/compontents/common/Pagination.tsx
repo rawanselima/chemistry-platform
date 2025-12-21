@@ -8,39 +8,83 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
-const PaginationDiv = () => {
+
+interface PaginationProps {
+  currentPage: number;
+  paginationRange: (string | number)[];
+  nextPage: () => void;
+  prevPage: () => void;
+  setCurrentPage: (page: number) => void;
+  totalPageCount: number;
+}
+
+const PaginationDiv = ({
+  currentPage,
+  paginationRange,
+  nextPage,
+  prevPage,
+  setCurrentPage,
+  totalPageCount,
+}: PaginationProps) => {
   return (
     <Pagination className="mb-3">
       <PaginationContent>
+        {/* Prev */}
         <PaginationItem>
           <PaginationPrevious
             href="#"
-            className="hover:bg-purple hover:text-white"
+            onClick={(e) => {
+              e.preventDefault();
+              prevPage();
+            }}
+            className={
+              currentPage === 1
+                ? "pointer-events-none opacity-50"
+                : "hover:bg-purple hover:text-white"
+            }
           />
         </PaginationItem>
 
-        <PaginationItem>
-          <PaginationLink href="1" className="hover:bg-purple hover:text-white">
-            1
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="1" className="hover:bg-purple hover:text-white">
-            2
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="1" className="hover:bg-purple hover:text-white">
-            3
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationEllipsis />
-        </PaginationItem>
+        {/* Page Numbers */}
+        {paginationRange.map((page, index) => {
+          if (page === "...") {
+            return (
+              <PaginationItem key={index}>
+                <PaginationEllipsis />
+              </PaginationItem>
+            );
+          }
+
+          return (
+            <PaginationItem key={index}>
+              <PaginationLink
+                href="#"
+                isActive={page === currentPage}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setCurrentPage(Number(page));
+                }}
+                className="hover:bg-purple hover:text-white"
+              >
+                {page}
+              </PaginationLink>
+            </PaginationItem>
+          );
+        })}
+
+        {/* Next */}
         <PaginationItem>
           <PaginationNext
             href="#"
-            className="hover:bg-purple hover:text-white"
+            onClick={(e) => {
+              e.preventDefault();
+              nextPage();
+            }}
+            className={
+              currentPage === totalPageCount
+                ? "pointer-events-none opacity-50"
+                : "hover:bg-purple hover:text-white"
+            }
           />
         </PaginationItem>
       </PaginationContent>

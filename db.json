@@ -1,0 +1,438 @@
+{
+  "users": [],
+  "levels": [
+    {
+      "id": 3,
+      "level": "الصف الاول الاعدادي",
+      "studentNumber": 20
+    },
+    {
+      "level": "الصف الاول الاعدادي",
+      "studentNumber": 0,
+      "id": 6
+    },
+    {
+      "level": "الصف التاني الاعدادي",
+      "studentNumber": 0,
+      "id": 7
+    },
+    {
+      "level": "الصف الرابع الابتدائي",
+      "studentNumber": 0,
+      "id": 8
+    },
+    {
+      "level": "الصف الخامس الابتدائي",
+      "studentNumber": 0,
+      "id": 9
+    }
+  ],
+  "courses": [
+    {
+      "id": "1",
+      "img": "/assets/course-1.png",
+      "courseName": "الدعامه",
+      "price": 200,
+      "discount": 50,
+      "description": "دي المراجعة الشهرية الثانية اللي بتأهلك للامتحان وتراجع كل اللي فات وتلم المتراكم عليك، وهي شاملة آخر 5 محاضرات (من المحاضرة السادسة لحد العاشرة)، وبعدها أنت مفروض تكون مستعد للامتحان الشامل الثابب",
+      "level": "الصف الاول الاعدادي",
+      "levelId": "3",
+      "lecturesNumber": "5 محاضره",
+      "studentsNumber": " 20 طالب"
+    },
+    {
+      "courseName": "nbjhvv",
+      "price": "620",
+      "discount": "50",
+      "levelId": "7",
+      "description": "nklnvvb",
+      "img": "/assets/course-1.png",
+      "id": "2",
+      "level": "الصف التاني الاعدادي",
+      "studentsNumber": " 20 طالب",
+      "lecturesNumber": "1 محاضره"
+    },
+    {
+      "courseName": "nbjhvv",
+      "price": "620",
+      "discount": "50",
+      "levelId": "9",
+      "description": "nklnvvb",
+      "img": "https://res.cloudinary.com/dkkuddfuv/image/upload/v1765938510/h40ki6svbttnzwnvlcer.png",
+      "studentsNumber": "0 طالب",
+      "lecturesNumber": "2 محاضره",
+      "id": "FTZQa-6",
+      "level": "الصف الخامس الابتدائي"
+    },
+    {
+      "courseName": "fdsaf",
+      "price": "300",
+      "discount": "0",
+      "levelId": "7",
+      "description": "fds",
+      "img": "https://res.cloudinary.com/dkkuddfuv/image/upload/v1766100658/gts8d022mhftuqehacqk.png",
+      "level": "الصف التاني الاعدادي",
+      "lecturesNumber": "3 محاضره",
+      "studentsNumber": "0 طالب",
+      "id": "_3NNktU"
+    },
+    {
+      "courseName": "gtdt",
+      "price": "620",
+      "discount": "055",
+      "levelId": "7",
+      "description": "zfz",
+      "img": "https://res.cloudinary.com/dkkuddfuv/image/upload/v1765939368/sbjqbw234swsohbe0ejp.png",
+      "level": "الصف التاني الاعدادي",
+      "lecturesNumber": "0 محاضره",
+      "studentsNumber": "0 طالب",
+      "id": "EtEZZfm"
+    },
+    {
+      "courseName": "fgfc",
+      "price": "555555555555555555",
+      "discount": "111111111111111",
+      "levelId": "8",
+      "description": "llllllllllllllllllllllllllllllllllllllllllllll",
+      "img": "https://res.cloudinary.com/dkkuddfuv/image/upload/v1765937858/m1h30cit3hxr1dvhrnsf.png",
+      "id": "R83DkIE",
+      "studentsNumber": "0 طالب",
+      "lecturesNumber": "0 محاضره",
+      "level": "الصف الرابع الابتدائي"
+    },
+    {
+      "courseName": "المعادلات الصحيحه ",
+      "price": "250",
+      "discount": "0",
+      "levelId": "3",
+      "description": "اهلا بيكم",
+      "img": "https://res.cloudinary.com/dkkuddfuv/image/upload/v1765937806/jxhmgkbfobq1vtilcprt.png",
+      "id": "mhUM7te",
+      "studentsNumber": "0 طالب",
+      "lecturesNumber": "1 محاضره",
+      "level": "الصف الاول الاعدادي"
+    },
+    {
+      "courseName": "gtdt",
+      "price": "620",
+      "discount": "055",
+      "levelId": "7",
+      "description": "zfz",
+      "img": "https://res.cloudinary.com/dkkuddfuv/image/upload/v1765937899/ngnibe7dmlavgtj9nqrw.png",
+      "level": "الصف التاني الاعدادي",
+      "lecturesNumber": "0 محاضره",
+      "studentsNumber": "0 طالب",
+      "id": "tSyW0Wi"
+    },
+    {
+      "courseName": "المعادلات الصحيحه ",
+      "price": "250",
+      "discount": "0",
+      "levelId": "9",
+      "description": "اهلا بيكم",
+      "img": "https://res.cloudinary.com/dkkuddfuv/image/upload/v1765929269/ybmf8dmoflirsffqsnl0.png",
+      "level": "الصف الخامس الابتدائي",
+      "lecturesNumber": "0 محاضره",
+      "studentsNumber": "0 طالب",
+      "id": "vsjXfuM"
+    },
+    {
+      "courseName": "جديد من نوعه",
+      "price": "182",
+      "discount": "56",
+      "levelId": "8",
+      "description": "اهلا مرحبا سعيد",
+      "img": "https://res.cloudinary.com/dkkuddfuv/image/upload/v1766089100/quxmbm7ifwgvi5fbuwwp.png",
+      "level": "الصف الرابع الابتدائي",
+      "lecturesNumber": "0 محاضره",
+      "studentsNumber": "0 طالب",
+      "id": "RVSzCKs"
+    }
+  ],
+  "lectures": [
+    {
+      "courseName": "fdsaf",
+      "levelName": "الصف التاني الاعدادي",
+      "lectureName": "new",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 1
+    },
+    {
+      "courseName": "nbjhvv",
+      "levelName": "الصف التاني الاعدادي",
+      "lectureName": "اهلا بيكم",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 2
+    },
+    {
+      "courseName": "fdsaf",
+      "levelName": "الصف التاني الاعدادي",
+      "lectureName": "جديد ",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 3
+    },
+    {
+      "courseName": "gtdt",
+      "levelName": "الصف التاني الاعدادي",
+      "lectureName": "rawan",
+      "courseId": "EtEZZfm",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 7
+    },
+    {
+      "courseName": "gtdt",
+      "levelName": "الصف التاني الاعدادي",
+      "lectureName": "hiiii",
+      "courseId": "EtEZZfm",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 11,
+      "levelId": "7"
+    },
+    {
+      "courseName": "المعادلات الصحيحه ",
+      "levelName": "الصف الاول الاعدادي",
+      "lectureName": "ؤلل",
+      "courseId": "mhUM7te",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 13
+    },
+    {
+      "courseName": "الدعامه",
+      "levelName": "الصف الاول الاعدادي",
+      "lectureName": "لارلاب",
+      "courseId": "1",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 14
+    },
+    {
+      "courseName": "الدعامه",
+      "levelName": "الصف الاول الاعدادي",
+      "lectureName": "للالبلا",
+      "courseId": "1",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 15
+    },
+    {
+      "courseName": "الدعامه",
+      "levelName": "الصف الاول الاعدادي",
+      "lectureName": "nooo",
+      "courseId": "1",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 16
+    },
+    {
+      "courseName": "المعادلات الصحيحه ",
+      "levelName": "الصف الاول الاعدادي",
+      "lectureName": "hii",
+      "courseId": "mhUM7te",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 17
+    },
+    {
+      "courseName": "المعادلات الصحيحه ",
+      "levelName": "الصف الاول الاعدادي",
+      "lectureName": "jjjj",
+      "courseId": "mhUM7te",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 18,
+      "levelId": "3"
+    },
+    {
+      "courseName": "fdsaf",
+      "levelName": "الصف التاني الاعدادي",
+      "lectureName": "v v v",
+      "courseId": "_3NNktU",
+      "levelId": "7",
+      "lectureNumber": 2,
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 19
+    },
+    {
+      "courseName": "fdsaf",
+      "levelName": "الصف التاني الاعدادي",
+      "lectureName": "fbf",
+      "courseId": "_3NNktU",
+      "levelId": "7",
+      "lectureNumber": 3,
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 20
+    },
+    {
+      "courseName": "المعادلات الصحيحه ",
+      "levelName": "الصف الخامس الابتدائي",
+      "lectureName": "just",
+      "courseId": "vsjXfuM",
+      "levelId": "9",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 21
+    },
+    {
+      "courseName": "جديد من نوعه",
+      "levelName": "الصف الرابع الابتدائي",
+      "lectureName": "girl",
+      "courseId": "RVSzCKs",
+      "levelId": "8",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 22
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "courseId": "1",
+      "courseName": "الدعامه",
+      "lectureName": "اهلا بيكم",
+      "lectureId": "22",
+      "levelName": "الصف الاول الاعدادي",
+      "levelId": "3",
+      "videoName": "fdfds",
+      "videoLink": "/videos/1.mp4",
+      "time": "30:00",
+      "createdAt": "20 يوليو 2025 3:30 AM"
+    },
+    {
+      "courseName": "gtdt",
+      "videoName": "ؤءئ",
+      "lectureId": "11",
+      "levelName": "df",
+      "videoLink": {
+        "0": {}
+      },
+      "courseId": "EtEZZfm",
+      "lectureName": "hiiii",
+      "time": "50:00",
+      "createdAt": "21-12-2025 12 صباحًا",
+      "id": 7
+    },
+    {
+      "courseName": "gtdt",
+      "videoName": "nvng",
+      "lectureId": "7",
+      "levelName": "df",
+      "videoLink": {
+        "0": {}
+      },
+      "courseId": "EtEZZfm",
+      "lectureName": "rawan",
+      "time": "50:00",
+      "createdAt": "21-12-2025  12:41 صباحًا",
+      "id": 8
+    },
+    {
+      "courseName": "gtdt",
+      "videoName": "nfn",
+      "lectureId": "7",
+      "levelName": "df",
+      "videoLink": {
+        "0": {}
+      },
+      "courseId": "EtEZZfm",
+      "lectureName": "rawan",
+      "time": "50:00",
+      "createdAt": "21-12-2025  12:48 صباحًا",
+      "id": 9
+    },
+    {
+      "courseName": "gtdt",
+      "videoName": "fggndhxghzgdhbzghzdgh",
+      "lectureId": "11",
+      "levelName": "df",
+      "videoLink": {},
+      "courseId": "EtEZZfm",
+      "lectureName": "hiiii",
+      "time": "50:00",
+      "createdAt": "21-12-2025  12:52 صباحًا",
+      "id": 10
+    },
+    {
+      "courseName": "gtdt",
+      "videoName": "nh",
+      "lectureId": "7",
+      "levelName": "df",
+      "videoLink": "https://res.cloudinary.com/dkkuddfuv/video/upload/v1766271915/ri6zmn2krbykxkf0gw2o.mp4",
+      "courseId": "EtEZZfm",
+      "lectureName": "rawan",
+      "time": "50:00",
+      "createdAt": "21-12-2025  01:05 صباحًا",
+      "id": 11
+    },
+    {
+      "courseName": "gtdt",
+      "videoName": "aaaaaaaa",
+      "lectureId": "11",
+      "levelName": "df",
+      "videoLink": "https://res.cloudinary.com/dkkuddfuv/video/upload/v1766277716/d1rkmnvzna0sour3i9zt.mp4",
+      "courseId": "EtEZZfm",
+      "lectureName": "hiiii",
+      "time": "1:17",
+      "createdAt": "21-12-2025  02:41 صباحًا",
+      "id": 14
+    },
+    {
+      "courseName": "gtdt",
+      "videoName": "b b",
+      "lectureId": "7",
+      "levelName": "df",
+      "videoLink": "https://res.cloudinary.com/dkkuddfuv/video/upload/v1766278191/vkphmbwutoqllhffunzn.mp4",
+      "courseId": "EtEZZfm",
+      "lectureName": "rawan",
+      "time": "1:17",
+      "createdAt": "21-12-2025  02:49 صباحًا",
+      "id": 15
+    },
+    {
+      "courseName": "gtdt",
+      "videoName": "fffff",
+      "lectureId": "11",
+      "levelName": "df",
+      "videoLink": "https://res.cloudinary.com/dkkuddfuv/video/upload/v1766346117/fjhfk0jqx8wn3hqyz0ms.mp4",
+      "courseId": "EtEZZfm",
+      "lectureName": "hiiii",
+      "time": "0:12",
+      "createdAt": "21-12-2025  09:41 مساءً",
+      "id": 16
+    },
+    {
+      "courseName": "gtdt",
+      "videoName": "الباب التاني",
+      "lectureId": "11",
+      "levelName": "الصف التاني الاعدادي",
+      "videoLink": "https://res.cloudinary.com/dkkuddfuv/video/upload/v1766347530/iymhgtsxbxz4bhcddmen.mp4",
+      "courseId": "EtEZZfm",
+      "lectureName": "hiiii",
+      "time": "0:12",
+      "createdAt": "21-12-2025  10:05 مساءً",
+      "id": 17
+    }
+  ]
+}

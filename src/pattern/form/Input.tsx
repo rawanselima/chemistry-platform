@@ -1,3 +1,5 @@
+import { useFormContext, type RegisterOptions } from "react-hook-form";
+
 interface inputProps {
   name: string;
   type: string;
@@ -7,6 +9,8 @@ interface inputProps {
   defaultValue?: string;
   focus?: boolean;
   readonly?: boolean;
+  rules?: RegisterOptions;
+  value?: string;
 }
 
 const Input = ({
@@ -18,18 +22,35 @@ const Input = ({
   defaultValue,
   focus,
   readonly,
+  rules,
+  value,
 }: inputProps) => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
   return (
-    <input
-      className={`${style} m-2 bg-light-purple/50 px-5 py-2 rounded-lg text-dark-purple focus:border-2 focus:border-purple placeholder:text-dark-purple placeholder:text-sm outline-0`}
-      type={type}
-      name={name}
-      placeholder={placeholder}
-      checked={checked}
-      defaultValue={defaultValue}
-      autoFocus={focus}
-      readOnly={readonly}
-    />
+    <>
+      <input
+        className={`${style} ${
+          readonly ? "bg-gray-200 cursor-not-allowed" : "bg-light-purple/50"
+        } m-2  px-5 py-2 rounded-lg text-dark-purple focus:border-2 focus:border-purple placeholder:text-dark-purple placeholder:text-sm outline-0`}
+        type={type}
+        placeholder={placeholder}
+        checked={checked}
+        defaultValue={defaultValue}
+        autoFocus={focus}
+        readOnly={readonly}
+        value={value}
+        {...register(name, rules)}
+      />
+      {errors[name] && (
+        <p className="font-bold text-red-700">
+          {errors[name]?.message?.toString()}
+        </p>
+      )}
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 import Button from "@/compontents/common/Button";
-import DeleteModal from "@/compontents/common/DeleteModal";
+// import DeleteModal from "@/compontents/common/DeleteModal";
 import GeneralTable from "@/compontents/common/Table";
 import AddFile from "@/compontents/teacherFiles/AddFile";
 import EditFile from "@/compontents/teacherFiles/EditFile";
@@ -8,7 +8,7 @@ import { useState } from "react";
 import { BiSolidEditAlt } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import { MdOutlineDownload } from "react-icons/md";
-import { RiDeleteBin5Line } from "react-icons/ri";
+// import { RiDeleteBin5Line } from "react-icons/ri";
 
 interface dataType {
   id: string;
@@ -19,7 +19,7 @@ interface dataType {
 }
 const TeacherFiles = () => {
   const [isEditOpen, setIsEditOpen] = useState<boolean>(false);
-  const [isDeleteOpen, setIsDeleteOpen] = useState<boolean>(false);
+  // const [isDeleteOpen, setIsDeleteOpen] = useState<boolean>(false);
   const [isAddOpen, setIsAddOpen] = useState<boolean>(false);
 
   const dataFilter = [
@@ -74,11 +74,11 @@ const TeacherFiles = () => {
       operation: "edit",
       function: () => setIsEditOpen(true),
     },
-    {
-      label: <RiDeleteBin5Line />,
-      operation: "delete",
-      function: () => setIsDeleteOpen(true),
-    },
+    // {
+    //   label: <RiDeleteBin5Line />,
+    //   operation: "delete",
+    //   function: () => setIsDeleteOpen(true),
+    // },
   ];
 
   return (
@@ -101,14 +101,14 @@ const TeacherFiles = () => {
 
       {isEditOpen && <EditFile isOpen={isEditOpen} setIsOpen={setIsEditOpen} />}
       {isAddOpen && <AddFile isOpen={isAddOpen} setIsOpen={setIsAddOpen} />}
-
+{/* 
       {isDeleteOpen && (
         <DeleteModal
           isOpen={isDeleteOpen}
           setIsOpen={setIsDeleteOpen}
           title="حذف الملف"
         />
-      )}
+      )} */}
     </main>
   );
 };

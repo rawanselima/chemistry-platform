@@ -1,26 +1,58 @@
 import Modal from "@/components/ui/modal";
 import Form from "@/pattern/form/Form";
 import Button from "../common/Button";
+import useGetDetailsCourse from "./useGetDetailsCourse";
+import Loader from "../common/Loader";
+import Error from "../common/Error";
+import type { courses, levels } from "@/typs";
+import useEditCourse from "./useEditCourse";
+import useUploadImage from "@/hooks/useUploadImg";
+import Spinner from "../common/Spinner";
 
-type levelType = {
-  id: string;
-  value: string;
-};
-function EditCourse({
-  isOpen,
-  setIsOpen,
-}: {
+interface Props {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
-}) {
+  courseId: string | number | undefined;
+  levels: levels[];
+}
+function EditCourse({ isOpen, setIsOpen, courseId, levels }: Props) {
   const styleLabel: string =
     "font-bold text-dark-purple text-xl pr-3 my-3 block";
+  const { data: course, isLoading, isError } = useGetDetailsCourse(courseId);
+  const [uploadImage, { isUploading, error }] = useUploadImage();
+  const { mutate, isPending } = useEditCourse(setIsOpen, error);
 
-  const levels: levelType[] = [
-    { id: "1", value: "الصف الاول" },
-    { id: "2", value: "الصف الثاني" },
-    { id: "3", value: "الصف الثالث" },
-  ];
+  if (isLoading) return <Loader />;
+  if (isError) return <Error />;
+
+  async function onSubmit(data: any) {
+    try {
+      let newImg = course.img;
+      
+      if (data.img && data.img.length > 0) {
+        const file = data.img[0] as File;
+        const uploadedUrl = await uploadImage(file);
+        if (uploadedUrl) newImg = uploadedUrl;
+      }
+
+      const level = levels.find(
+        (ele) => String(ele.id) === String(data.levelId)
+      );
+
+      const newCourse: courses = {
+        ...data,
+        img: newImg,
+        level: level?.level || course.level,
+        studentsNumber: course.studentsNumber || "0 طالب",
+        lecturesNumber: course.lecturesNumber || "0 محاضره",
+      };
+
+      mutate({ courseId, newCourse });
+    } catch (err) {
+      console.error("Error editing course:", err);
+    }
+  }
+
   return (
     <div>
       <Modal
@@ -30,17 +62,25 @@ function EditCourse({
         size="lg"
         animation="fade"
       >
-        <Form>
+        <Form
+          onSubmit={onSubmit}
+          options={{
+            defaultValues: {
+              ...course,
+              levelId: String(course.levelId),
+            },
+          }}
+        >
           <Form.Label
             label="عنوان الكورس"
             style="font-bold text-dark-purple text-xl pr-3 mb-3 block"
-            htmlFor="course"
+            htmlFor="courseName"
           />
           <Form.Input
             type="text"
-            name="course"
-            defaultValue={"الباب الاول"}
+            name="courseName"
             style="w-full"
+            rules={{ required: "يجب كتاب اسم الكورس" }}
           />
           <div className="flex gap-2 md:flex-nowrap flex-wrap">
             <div className="md:w-1/2 w-full">
@@ -53,7 +93,7 @@ function EditCourse({
                 type="text"
                 name="price"
                 style="w-full"
-                defaultValue="250"
+                rules={{ required: "يجب كتابه سعر الكورس" }}
               />
             </div>
             <div className="md:w-1/2 w-full">
@@ -62,24 +102,24 @@ function EditCourse({
                 label="التخفيض "
                 style="font-bold text-dark-purple text-xl pr-3 mb-3 block"
               />
-              <Form.Input
-                type="text"
-                name="discount"
-                style="w-full"
-                defaultValue="20"
-              />
+              <Form.Input type="text" name="discount" style="w-full" />
             </div>
           </div>
           <Form.Label
             label=" المرحله الدراسيه  "
-            htmlFor="levels"
+            htmlFor="levelId"
             style={styleLabel}
           />
           <Form.Select
-            name="levels"
+            name="levelId"
             style="w-full"
-            data={levels}
-            defaultValue="2" // id for select option that will be default
+            data={
+              levels?.map((ele) => ({
+                id: String(ele.id),
+                value: ele.level,
+              })) ?? []
+            }
+            rules={{ required: "يجب اختيار المرحله الدراسيه" }}
           />
           <Form.Label
             label="وصف الكورس"
@@ -89,20 +129,29 @@ function EditCourse({
           <Form.Textarea
             style="w-full h-30"
             name="description"
-            defaultValue="دي المراجعة الشهرية الثانية اللي بتأهلك للامتحان وتراجع كل اللي فات وتلم المتراكم عليك، وهي شاملة آخر 5 محاضرات (من المحاضرة السادسة لحد العاشرة)، وبعدها أنت مفروض تكون مستعد للامتحان الشامل الثاني"
+            rules={{ required: "يجب كتابه وصف دقيق للكورس" }}
           />
           <Form.Label label="تغيير الصوره" style={styleLabel} htmlFor="img" />
           <Form.Input type="file" name="img" style="w-full" />
           <img
-            src="/assets/course-1.png"
+            src={course.img}
             alt="صوره الكورس"
             className="w-3/4 h-50 object-fit mx-auto mt-5 "
           />
           <div className="flex items-center gap-3 mt-5">
-            <Button style="solid" size="medium" width="fit">
-              حفظ التعديلات
+            <Button style="solid" size="medium" width="fit" type="submit">
+              {isPending || isUploading ? (
+                <Spinner color="lightPurple" />
+              ) : (
+                "   حفظ التعديلات"
+              )}
             </Button>
-            <Button style="outline" size="medium" width="fit">
+            <Button
+              style="outline"
+              size="medium"
+              width="fit"
+              onClick={() => setIsOpen(false)}
+            >
               اغلاق
             </Button>
           </div>

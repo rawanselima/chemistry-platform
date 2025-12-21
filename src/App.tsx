@@ -1,7 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { lazy } from "react";
 import "./App.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Home from "./pages/Home";
-import Courses from "./pages/Courses";
 import DetailsCourse from "./pages/DetailsCourse";
 import UserProfile from "./pages/UserProfile";
 import UserCourses from "./pages/UserCourses";
@@ -18,7 +19,6 @@ import LayoutCourses from "./compontents/layout/LayoutCourses";
 import AllExamResults from "./pages/AllExamResults";
 import AllHomeworkResults from "./pages/AllHomeworkResults";
 import TeacherLayout from "./compontents/layout/TeacherLayout";
-import TeacherCourses from "./pages/TeacherCourses";
 import DetailsTeacherCourses from "./pages/DetailsTeacherCourses";
 import Layout from "./compontents/layout/Layout";
 import TeacherLectures from "./pages/TeacherLectures";
@@ -32,7 +32,18 @@ import DetailsStudent from "./pages/DetailsStudent";
 import DataStudent from "./pages/DataStudent";
 import TeacherDashboard from "./pages/TeacherDashboard";
 import TeacherReceipt from "./pages/TeacherReceipt";
-import Levels from "./pages/Levels";
+import { ToastContainer } from "react-toastify";
+import Error from "./compontents/common/Error";
+const Levels = lazy(() => import("./pages/Levels"));
+const Courses = lazy(() => import("./pages/Courses"));
+const TeacherCourses = lazy(() => import("./pages/TeacherCourses"));
+
+// ============================================================
+// to run project node server.js   then    npm run dev
+// ============================================================
+
+const queryClient = new QueryClient();
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -177,8 +188,17 @@ function App() {
         },
       ],
     },
+    {
+      path: "*",
+      element: <Error />,
+    },
   ]);
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      <ToastContainer position="top-right" autoClose={3000} />
+    </QueryClientProvider>
+  );
 }
 
 export default App;

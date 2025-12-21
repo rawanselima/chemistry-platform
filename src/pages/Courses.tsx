@@ -1,4 +1,4 @@
-import PaginationDiv from "@/compontents/common/Pagination";
+// import PaginationDiv from "@/compontents/common/Pagination";
 import Title from "../compontents/courses/Title";
 import CoursesBox from "../compontents/courses/CoursesBox";
 
@@ -18,7 +18,7 @@ const Courses = () => {
       </section>
 
       <section>
-        <PaginationDiv />
+        {/* <PaginationDiv /> */}
       </section>
       
     </main>

@@ -2,7 +2,7 @@ import GeneralTable from "@/compontents/common/Table";
 import TitleDashboard from "@/compontents/common/TitleDashboard";
 import { useNavigate } from "react-router-dom";
 import { PiExam } from "react-icons/pi";
-import PaginationDiv from "@/compontents/common/Pagination";
+// import PaginationDiv from "@/compontents/common/Pagination";
 import type { ExamResultProps } from "@/typs";
 import Form from "@/pattern/form/Form";
 const AllHomeworkResults = () => {
@@ -107,7 +107,7 @@ const AllHomeworkResults = () => {
       </section>
 
       <section className="my-5">
-        <PaginationDiv />
+        {/* <PaginationDiv /> */}
       </section>
     </main>
   );

@@ -1,5 +1,5 @@
-import DeleteModal from "@/compontents/common/DeleteModal";
-import PaginationDiv from "@/compontents/common/Pagination";
+// import DeleteModal from "@/compontents/common/DeleteModal";
+// import PaginationDiv from "@/compontents/common/Pagination";
 import GeneralTable from "@/compontents/common/Table";
 import TitleDashboard from "@/compontents/common/TitleDashboard";
 import EditStudent from "@/compontents/students/EditStudent";
@@ -7,7 +7,7 @@ import SearchFilter from "@/compontents/teacherLectures/SearchFilter";
 import { useState } from "react";
 import { BiSolidEditAlt } from "react-icons/bi";
 import { FaRegEye } from "react-icons/fa6";
-import { RiDeleteBin5Line } from "react-icons/ri";
+// import { RiDeleteBin5Line } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 
 type dataType = {
@@ -21,7 +21,7 @@ type dataType = {
 const Students = () => {
   const navigate = useNavigate();
   const [isEditOpen, setIsEditOpen] = useState<boolean>(false);
-  const [isDeleteOpen, setIsDeleteOpen] = useState<boolean>(false);
+  // const [isDeleteOpen, setIsDeleteOpen] = useState<boolean>(false);
 
   const levels = [
     {
@@ -84,11 +84,11 @@ const Students = () => {
       operation: "edit",
       function: () => setIsEditOpen(true),
     },
-    {
-      label: <RiDeleteBin5Line />,
-      operation: "delete",
-      function: () => setIsDeleteOpen(true),
-    },
+    // {
+    //   label: <RiDeleteBin5Line />,
+    //   operation: "delete",
+    //   function: () => setIsDeleteOpen(true),
+    // },
   ];
 
   return (
@@ -104,21 +104,19 @@ const Students = () => {
       </section>
       <GeneralTable columns={columns} data={data} actions={actions} />
 
-      <section className="my-5">
-        <PaginationDiv />
-      </section>
+      <section className="my-5">{/* <PaginationDiv /> */}</section>
 
       {isEditOpen && (
         <EditStudent isOpen={isEditOpen} setIsOpen={setIsEditOpen} />
       )}
 
-      {isDeleteOpen && (
+      {/* {isDeleteOpen && (
         <DeleteModal
           isOpen={isDeleteOpen}
           setIsOpen={setIsDeleteOpen}
           title="حذف الطالب"
         />
-      )}
+      )} */}
     </main>
   );
 };

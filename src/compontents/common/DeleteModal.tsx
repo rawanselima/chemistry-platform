@@ -1,14 +1,19 @@
 import Modal from "@/components/ui/modal";
 import Button from "./Button";
+import Spinner from "./Spinner";
 
 const DeleteModal = ({
   setIsOpen,
   isOpen,
   title,
+  isPending,
+  deleteFn,
 }: {
   setIsOpen: (value: boolean) => void;
   isOpen: boolean;
   title: string;
+  isPending: boolean;
+  deleteFn: () => void;
 }) => {
   return (
     <Modal
@@ -71,10 +76,20 @@ const DeleteModal = ({
         </div>
 
         <div className="flex space-x-3">
-          <Button style="wrong" width="fit" size="small">
-            حذف
+          <Button
+            style="wrong"
+            width="fit"
+            size="small"
+            onClick={() => deleteFn()}
+          >
+            {isPending ? <Spinner color="lightPurple" /> : "حذف"}
           </Button>
-          <Button style="outline" width="fit" size="small">
+          <Button
+            style="outline"
+            width="fit"
+            size="small"
+            onClick={() => setIsOpen(false)}
+          >
             اغلاق
           </Button>
         </div>

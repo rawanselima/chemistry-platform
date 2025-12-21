@@ -4,6 +4,8 @@ interface ButtonProps {
   style: "solid" | "outline" | "solved" | "wrong" | "correct";
   size: "small" | "medium" | "large";
   width: "half" | "full" | "fit";
+  type?: "submit" | "reset";
+  disabled?: boolean;
   onClick?: () => void;
 }
 
@@ -33,6 +35,8 @@ const Button = ({
   size,
   width,
   additionalStyle,
+  type,
+  disabled,
   onClick,
 }: ButtonProps) => {
   const colors: ColorStyles = {
@@ -58,6 +62,8 @@ const Button = ({
 
   return (
     <button
+      disabled={disabled}
+      type={type}
       className={`${widthValue[width]} ${
         additionalStyle ? additionalStyle : "rounded-lg"
       } flex items-center justify-center gap-1 ${
