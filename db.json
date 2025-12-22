@@ -178,25 +178,15 @@
       "id": 3
     },
     {
-      "courseName": "gtdt",
-      "levelName": "الصف التاني الاعدادي",
+      "courseName": "الدعامه",
+      "levelName": "الصف الاول الاعدادي",
       "lectureName": "rawan",
-      "courseId": "EtEZZfm",
+      "courseId": "1",
       "examsNumber": 0,
       "homeworksNumber": 0,
       "videosNumber": 0,
-      "id": 7
-    },
-    {
-      "courseName": "gtdt",
-      "levelName": "الصف التاني الاعدادي",
-      "lectureName": "hiiii",
-      "courseId": "EtEZZfm",
-      "examsNumber": 0,
-      "homeworksNumber": 0,
-      "videosNumber": 0,
-      "id": 11,
-      "levelId": "7"
+      "id": 7,
+      "levelId": "3"
     },
     {
       "courseName": "المعادلات الصحيحه ",
@@ -304,6 +294,50 @@
       "homeworksNumber": 0,
       "videosNumber": 0,
       "id": 22
+    },
+    {
+      "courseName": "nbjhvv",
+      "levelName": "الصف التاني الاعدادي",
+      "lectureName": "new",
+      "courseId": "2",
+      "levelId": "7",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 23
+    },
+    {
+      "courseName": "nbjhvv",
+      "levelName": "الصف التاني الاعدادي",
+      "lectureName": "old",
+      "courseId": "2",
+      "levelId": "7",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 24
+    },
+    {
+      "courseName": "جديد من نوعه",
+      "levelName": "الصف الرابع الابتدائي",
+      "lectureName": "test",
+      "courseId": "RVSzCKs",
+      "levelId": "8",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 25
+    },
+    {
+      "courseName": "جديد من نوعه",
+      "levelName": "الصف الرابع الابتدائي",
+      "lectureName": "test 33",
+      "courseId": "RVSzCKs",
+      "levelId": "8",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 26
     }
   ],
   "videos": [
@@ -319,20 +353,6 @@
       "videoLink": "/videos/1.mp4",
       "time": "30:00",
       "createdAt": "20 يوليو 2025 3:30 AM"
-    },
-    {
-      "courseName": "gtdt",
-      "videoName": "ؤءئ",
-      "lectureId": "11",
-      "levelName": "df",
-      "videoLink": {
-        "0": {}
-      },
-      "courseId": "EtEZZfm",
-      "lectureName": "hiiii",
-      "time": "50:00",
-      "createdAt": "21-12-2025 12 صباحًا",
-      "id": 7
     },
     {
       "courseName": "gtdt",
@@ -364,18 +384,6 @@
     },
     {
       "courseName": "gtdt",
-      "videoName": "fggndhxghzgdhbzghzdgh",
-      "lectureId": "11",
-      "levelName": "df",
-      "videoLink": {},
-      "courseId": "EtEZZfm",
-      "lectureName": "hiiii",
-      "time": "50:00",
-      "createdAt": "21-12-2025  12:52 صباحًا",
-      "id": 10
-    },
-    {
-      "courseName": "gtdt",
       "videoName": "nh",
       "lectureId": "7",
       "levelName": "df",
@@ -385,18 +393,6 @@
       "time": "50:00",
       "createdAt": "21-12-2025  01:05 صباحًا",
       "id": 11
-    },
-    {
-      "courseName": "gtdt",
-      "videoName": "aaaaaaaa",
-      "lectureId": "11",
-      "levelName": "df",
-      "videoLink": "https://res.cloudinary.com/dkkuddfuv/video/upload/v1766277716/d1rkmnvzna0sour3i9zt.mp4",
-      "courseId": "EtEZZfm",
-      "lectureName": "hiiii",
-      "time": "1:17",
-      "createdAt": "21-12-2025  02:41 صباحًا",
-      "id": 14
     },
     {
       "courseName": "gtdt",
@@ -412,26 +408,26 @@
     },
     {
       "courseName": "gtdt",
-      "videoName": "fffff",
-      "lectureId": "11",
-      "levelName": "df",
-      "videoLink": "https://res.cloudinary.com/dkkuddfuv/video/upload/v1766346117/fjhfk0jqx8wn3hqyz0ms.mp4",
+      "videoName": "tse",
+      "lectureId": "25",
+      "levelName": "الصف التاني الاعدادي",
+      "videoLink": "https://res.cloudinary.com/dkkuddfuv/video/upload/v1766358219/xnlscvvpqq9jzsqxhxo4.mp4",
       "courseId": "EtEZZfm",
-      "lectureName": "hiiii",
+      "lectureName": "test",
       "time": "0:12",
-      "createdAt": "21-12-2025  09:41 مساءً",
+      "createdAt": "22-12-2025  01:03 صباحًا",
       "id": 16
     },
     {
-      "courseName": "gtdt",
-      "videoName": "الباب التاني",
-      "lectureId": "11",
-      "levelName": "الصف التاني الاعدادي",
-      "videoLink": "https://res.cloudinary.com/dkkuddfuv/video/upload/v1766347530/iymhgtsxbxz4bhcddmen.mp4",
-      "courseId": "EtEZZfm",
-      "lectureName": "hiiii",
+      "courseName": "جديد من نوعه",
+      "videoName": "hello girls",
+      "lectureId": "22",
+      "levelName": "الصف الرابع الابتدائي",
+      "videoLink": "https://res.cloudinary.com/dkkuddfuv/video/upload/v1766362907/tnhh6y81mzwtdgsvp95i.mp4",
+      "courseId": "RVSzCKs",
+      "lectureName": "girl",
       "time": "0:12",
-      "createdAt": "21-12-2025  10:05 مساءً",
+      "createdAt": "22-12-2025  01:16 صباحًا",
       "id": 17
     }
   ]

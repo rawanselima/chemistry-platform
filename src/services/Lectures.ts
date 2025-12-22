@@ -1,5 +1,6 @@
-import type { lectures } from "@/typs";
+import type { lectures, videos } from "@/typs";
 import { API } from "./API";
+import { getVideosByLecture, syncVideosWithLecture } from "./videos";
 
 export async function getLectures(courseId: string | undefined) {
   try {
@@ -27,8 +28,17 @@ export async function detailsLecture(lectureId: string | number | undefined) {
 
 export async function deleteLecture(lectureId: string | number | undefined) {
   if (!lectureId) return;
-  console.log(lectureId);
   try {
+    // 1. Get all videos related to this lecture
+    const relatedVideos = await getVideosByLecture(lectureId);
+
+    // 2. Delete all related videos
+    const deleteVideoPromises = relatedVideos.map((video: videos) =>
+      fetch(`${API}/videos/${video.id}`, { method: "DELETE" })
+    );
+    await Promise.all(deleteVideoPromises);
+
+    // 3. Delete the lecture itself
     const response = await fetch(`${API}/lectures/${String(lectureId)}`, {
       method: "DELETE",
     });
@@ -70,9 +80,8 @@ export async function EditLecture({
 }) {
   if (!newLecture || !lectureId) return;
 
-  console.log(newLecture);
-
   try {
+    // 1. Update the lecture
     const response = await fetch(`${API}/lectures/${lectureId}`, {
       method: "PUT",
       headers: {
@@ -82,6 +91,15 @@ export async function EditLecture({
     });
     if (!response.ok) throw new Error("failed to edit lecture");
     const data = await response.json();
+
+    // 2. Cascade changes to all videos in this lecture (sync course info)
+    await syncVideosWithLecture(lectureId, {
+      courseId: newLecture.courseId,
+      courseName: newLecture.courseName,
+      lectureName: newLecture.lectureName,
+      levelName: newLecture.levelName,
+    });
+
     return data;
   } catch (error) {
     console.error(error);

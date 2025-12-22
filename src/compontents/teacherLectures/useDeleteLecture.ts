@@ -14,6 +14,8 @@ export default function useDeleteLecture(
       toast.success("تم حذف المحاضره بنجاح");
       setIsOpen(false);
       queryClient.invalidateQueries({ queryKey: ["lectures", courseId] });
+      queryClient.invalidateQueries({ queryKey: ["videos"] });
+      queryClient.invalidateQueries({ queryKey: ["courses"] });
     },
     onError: () => {
       setIsOpen(false);

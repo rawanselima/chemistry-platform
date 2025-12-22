@@ -18,7 +18,7 @@ const usePagination = ({
   totalItems,
   itemsPerPage,
   siblingCount = 1,
-  enableSearchParams = false,
+  enableSearchParams = true,
 }: PaginationProps & {
   enableSearchParams?: boolean;
 }) => {

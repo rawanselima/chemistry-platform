@@ -16,6 +16,8 @@ export default function useEditLecture(setIsOpen: (value: boolean) => void) {
       toast.success("تم تعديل المحاضره بنجاح");
       setIsOpen(false);
       queryClient.invalidateQueries({ queryKey: ["lectures"] });
+      queryClient.invalidateQueries({ queryKey: ["videos"] });
+      queryClient.invalidateQueries({ queryKey: ["courses"] });
     },
     onError: () => {
       toast.error("فشل تعديل المحاضره برجاء المحاوهل مره اخري");

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../common/Button";
 import { TiArrowLeft } from "react-icons/ti";
 
@@ -22,6 +23,12 @@ const HeroSection = () => {
           <Button style="solid" size="large" width="fit">
             اكتشف الكورسات <TiArrowLeft />
           </Button>
+          <Link to="/teacherDashboard">
+            <Button style="solid" size="large" width="fit">
+              {" "}
+              داش بورد المدرس{" "}
+            </Button>
+          </Link>
         </div>
         <div className="w-80 absolute xl:bottom-54 right-64 rotate-180 hidden xl:block">
           <img
