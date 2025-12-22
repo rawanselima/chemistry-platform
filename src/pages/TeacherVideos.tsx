@@ -48,7 +48,6 @@ const TeacherVideos = () => {
     nextPage,
     prevPage,
     setCurrentPage: handlePageChange,
-    totalPageCount,
   } = usePagination({ totalItems: totalItems || 0, itemsPerPage: itemPerPage });
 
   const {
