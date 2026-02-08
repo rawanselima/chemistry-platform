@@ -2,17 +2,12 @@
   "users": [],
   "levels": [
     {
-      "id": 3,
-      "level": "الصف الاول الاعدادي",
-      "studentNumber": 20
-    },
-    {
       "level": "الصف الاول الاعدادي",
       "studentNumber": 0,
       "id": 6
     },
     {
-      "level": "الصف التاني الاعدادي",
+      "level": "الصف التاني الاعداديii",
       "studentNumber": 0,
       "id": 7
     },
@@ -25,21 +20,14 @@
       "level": "الصف الخامس الابتدائي",
       "studentNumber": 0,
       "id": 9
+    },
+    {
+      "level": "test",
+      "studentNumber": 0,
+      "id": 10
     }
   ],
   "courses": [
-    {
-      "id": "1",
-      "img": "/assets/course-1.png",
-      "courseName": "الدعامه",
-      "price": 200,
-      "discount": 50,
-      "description": "دي المراجعة الشهرية الثانية اللي بتأهلك للامتحان وتراجع كل اللي فات وتلم المتراكم عليك، وهي شاملة آخر 5 محاضرات (من المحاضرة السادسة لحد العاشرة)، وبعدها أنت مفروض تكون مستعد للامتحان الشامل الثابب",
-      "level": "الصف الاول الاعدادي",
-      "levelId": "3",
-      "lecturesNumber": "5 محاضره",
-      "studentsNumber": " 20 طالب"
-    },
     {
       "courseName": "nbjhvv",
       "price": "620",
@@ -101,18 +89,6 @@
       "level": "الصف الرابع الابتدائي"
     },
     {
-      "courseName": "المعادلات الصحيحه ",
-      "price": "250",
-      "discount": "0",
-      "levelId": "3",
-      "description": "اهلا بيكم",
-      "img": "https://res.cloudinary.com/dkkuddfuv/image/upload/v1765937806/jxhmgkbfobq1vtilcprt.png",
-      "id": "mhUM7te",
-      "studentsNumber": "0 طالب",
-      "lecturesNumber": "1 محاضره",
-      "level": "الصف الاول الاعدادي"
-    },
-    {
       "courseName": "gtdt",
       "price": "620",
       "discount": "055",
@@ -147,6 +123,18 @@
       "lecturesNumber": "0 محاضره",
       "studentsNumber": "0 طالب",
       "id": "RVSzCKs"
+    },
+    {
+      "courseName": "test",
+      "price": "200",
+      "discount": "10",
+      "levelId": "7",
+      "description": "gg",
+      "img": "https://res.cloudinary.com/dkkuddfuv/image/upload/v1770580115/puwlgwmas4c7kf2egjhq.jpg",
+      "level": "الصف التاني الاعداديii",
+      "lecturesNumber": "0 محاضره",
+      "studentsNumber": "0 طالب",
+      "id": "2AvaNY3"
     }
   ],
   "lectures": [
@@ -176,17 +164,6 @@
       "homeworksNumber": 0,
       "videosNumber": 0,
       "id": 3
-    },
-    {
-      "courseName": "الدعامه",
-      "levelName": "الصف الاول الاعدادي",
-      "lectureName": "rawan",
-      "courseId": "1",
-      "examsNumber": 0,
-      "homeworksNumber": 0,
-      "videosNumber": 0,
-      "id": 7,
-      "levelId": "3"
     },
     {
       "courseName": "المعادلات الصحيحه ",
@@ -239,17 +216,6 @@
       "id": 17
     },
     {
-      "courseName": "المعادلات الصحيحه ",
-      "levelName": "الصف الاول الاعدادي",
-      "lectureName": "jjjj",
-      "courseId": "mhUM7te",
-      "examsNumber": 0,
-      "homeworksNumber": 0,
-      "videosNumber": 0,
-      "id": 18,
-      "levelId": "3"
-    },
-    {
       "courseName": "fdsaf",
       "levelName": "الصف التاني الاعدادي",
       "lectureName": "v v v",
@@ -296,10 +262,10 @@
       "id": 22
     },
     {
-      "courseName": "nbjhvv",
-      "levelName": "الصف التاني الاعدادي",
+      "courseName": "test",
+      "levelName": "الصف التاني الاعداديii",
       "lectureName": "new",
-      "courseId": "2",
+      "courseId": "2AvaNY3",
       "levelId": "7",
       "examsNumber": 0,
       "homeworksNumber": 0,
@@ -338,22 +304,31 @@
       "homeworksNumber": 0,
       "videosNumber": 0,
       "id": 26
+    },
+    {
+      "courseName": "test",
+      "levelName": "الصف التاني الاعداديii",
+      "lectureName": "test2",
+      "courseId": "2AvaNY3",
+      "levelId": "7",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 27
+    },
+    {
+      "courseName": "test",
+      "levelName": "الصف التاني الاعداديii",
+      "lectureName": "test3",
+      "courseId": "2AvaNY3",
+      "levelId": "7",
+      "examsNumber": 0,
+      "homeworksNumber": 0,
+      "videosNumber": 0,
+      "id": 28
     }
   ],
   "videos": [
-    {
-      "id": 1,
-      "courseId": "1",
-      "courseName": "الدعامه",
-      "lectureName": "اهلا بيكم",
-      "lectureId": "22",
-      "levelName": "الصف الاول الاعدادي",
-      "levelId": "3",
-      "videoName": "fdfds",
-      "videoLink": "/videos/1.mp4",
-      "time": "30:00",
-      "createdAt": "20 يوليو 2025 3:30 AM"
-    },
     {
       "courseName": "gtdt",
       "videoName": "nvng",

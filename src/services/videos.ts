@@ -18,6 +18,7 @@ export async function getVideos({
     if (!response.ok) throw new Error("failed fetch videos");
     const data = await response.json();
     const totalCount = Number(response.headers.get("X-Total-Count"));
+    console.log("data", data);
     return { data, totalCount };
   } catch (error) {
     console.error(error);
